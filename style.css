@@ -179,6 +179,7 @@ h1, h2, h3, h4 {
 .logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 /* SOLE BRAND LOGO BADGE IMAGE WITH TRANSPARENT BACKGROUND */
@@ -194,6 +195,8 @@ h1, h2, h3, h4 {
   box-shadow: none !important;
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.6));
   transition: transform 0.3s var(--ease-smooth);
+  flex-shrink: 0;
+  display: block;
 }
 
 .brand-logo-img:hover {
@@ -1979,7 +1982,11 @@ h1, h2, h3, h4 {
   }
 
   .brand-logo-img {
-    height: 52px;
+    height: 48px !important;
+    max-width: 170px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .hero-location-ribbon {
