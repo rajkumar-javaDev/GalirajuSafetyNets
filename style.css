@@ -158,7 +158,7 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   z-index: 999;
-  padding: 0.5rem 1.25rem;
+  padding: 0.65rem 1.25rem;
   transition: all 0.4s var(--ease-smooth);
   background: var(--glass);
   backdrop-filter: blur(20px);
@@ -179,22 +179,21 @@ h1, h2, h3, h4 {
 .logo {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  margin-left: auto; /* Moves logo towards the right side */
+  flex-shrink: 0;
 }
 
-/* DOUBLED MASSIVE BRAND LOGO BADGE IMAGE */
+/* CLEAN BRAND LOGO BADGE IMAGE */
 .brand-logo-img {
-   height: 150px;
-   width: auto;
-  max-width: 650px;
+  height: 54px;
+  width: auto;
+  max-width: 220px;
   object-fit: contain;
   background: transparent !important;
   padding: 0 !important;
   border-radius: 0 !important;
   border: none !important;
   box-shadow: none !important;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
   transition: transform 0.3s var(--ease-smooth);
 }
 
@@ -1951,14 +1950,14 @@ h1, h2, h3, h4 {
   }
 
   .logo {
-    justify-content: flex-end;
-    margin-left: auto;
+    justify-content: flex-start;
+    margin-left: 0;
   }
 
   .nav-links {
     display: none;
     position: fixed;
-    top: 140px; /* Offset for larger header height */
+    top: 60px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -1982,9 +1981,9 @@ h1, h2, h3, h4 {
     display: none;
   }
 
-   .brand-logo-img {
-    height: 70px;
-    max-width: 220px;
+  .brand-logo-img {
+    height: 42px;
+    max-width: 170px;
   }
 
   .hero-slide {
@@ -2037,12 +2036,12 @@ h1, h2, h3, h4 {
 
 @media(max-width: 480px) {
   .brand-logo-img {
-    height: 55px;
-    max-width: 180px;
+    height: 38px;
+    max-width: 150px;
   }
 
   .nav-links {
-    top: 120px;
+    top: 56px;
   }
 
   .hero-slider-section {
