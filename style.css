@@ -1942,7 +1942,7 @@ h1, h2, h3, h4 {
 
 /* ==========================================================================
    MOBILE HEADER LAYOUT (< 768px)
-   Layout: Logo center aligned precisely at 40% mark across the header
+   Layout: Logo starts at 10% and ends at 60% (50% total width)
    ========================================================================== */
 @media(max-width: 768px) {
   .top-bar {
@@ -1965,34 +1965,34 @@ h1, h2, h3, h4 {
     position: relative;
   }
 
-  /* LOGO CONTAINER: MIDPOINT/CENTER IS AT 40% ACROSS THE MOBILE HEADER */
+  /* LOGO: STARTS AT 10% AND ENDS AT 60% ACROSS THE HEADER */
   .logo {
-    flex: 0 0 72%;
-    max-width: 72%;
+    flex: 0 0 60%;
+    max-width: 60%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding-left: 8%; /* Center point aligns right at ~40% mark across header */
+    padding-left: 10%; /* Offset left edge to start at 10% mark */
   }
 
   .brand-logo-img {
     width: 100% !important;
-    max-width: 250px !important;
+    max-width: 255px !important;
     height: auto !important;
     max-height: 56px !important;
     object-fit: contain;
-    object-position: center;
+    object-position: left center;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65));
   }
 
-  /* RIGHT SIDE CONTROLS: 28% WIDTH ON FAR RIGHT */
+  /* RIGHT SIDE CONTROLS: 40% WIDTH (60% to 100%) ON THE RIGHT */
   .nav-actions {
-    flex: 0 0 28%;
-    max-width: 28%;
+    flex: 0 0 40%;
+    max-width: 40%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
   }
 
   .theme-toggle, .hamburger {
@@ -2090,20 +2090,20 @@ h1, h2, h3, h4 {
   }
 
   .logo {
-    flex: 0 0 72%;
-    max-width: 72%;
-    padding-left: 6%;
+    flex: 0 0 60%;
+    max-width: 60%;
+    padding-left: 8%;
   }
 
   .brand-logo-img {
     max-height: 52px !important;
-    max-width: 230px !important;
+    max-width: 235px !important;
   }
 
   .nav-actions {
-    flex: 0 0 28%;
-    max-width: 28%;
-    gap: 6px;
+    flex: 0 0 40%;
+    max-width: 40%;
+    gap: 8px;
   }
 
   .theme-toggle, .hamburger {
