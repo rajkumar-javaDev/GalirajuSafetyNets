@@ -1942,7 +1942,7 @@ h1, h2, h3, h4 {
 
 /* ==========================================================================
    MOBILE HEADER LAYOUT (< 768px)
-   Layout: |<--------- LOGO (68% width) --------->| 🌙 | ☰ (32% width) |
+   Layout: Logo center aligned precisely at 40% mark across the header
    ========================================================================== */
 @media(max-width: 768px) {
   .top-bar {
@@ -1962,36 +1962,37 @@ h1, h2, h3, h4 {
     justify-content: space-between;
     width: 100%;
     max-width: 100%;
+    position: relative;
   }
 
-  /* LOGO OCCUPIES 68% OF HEADER WIDTH */
+  /* LOGO CONTAINER: MIDPOINT/CENTER IS AT 40% ACROSS THE MOBILE HEADER */
   .logo {
-    flex: 0 0 68%;
-    max-width: 68%;
+    flex: 0 0 72%;
+    max-width: 72%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    padding-left: 8%; /* Center point aligns right at ~40% mark across header */
   }
 
-  /* TIGHTLY CROPPED LOGO IMAGE IS 2-3X LARGER & BOLD */
   .brand-logo-img {
     width: 100% !important;
     max-width: 250px !important;
     height: auto !important;
     max-height: 56px !important;
     object-fit: contain;
-    object-position: left center;
+    object-position: center;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65));
   }
 
-  /* RIGHT SIDE CONTROLS OCCUPY 32% OF HEADER WIDTH */
+  /* RIGHT SIDE CONTROLS: 28% WIDTH ON FAR RIGHT */
   .nav-actions {
-    flex: 0 0 32%;
-    max-width: 32%;
+    flex: 0 0 28%;
+    max-width: 28%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .theme-toggle, .hamburger {
@@ -2089,8 +2090,9 @@ h1, h2, h3, h4 {
   }
 
   .logo {
-    flex: 0 0 68%;
-    max-width: 68%;
+    flex: 0 0 72%;
+    max-width: 72%;
+    padding-left: 6%;
   }
 
   .brand-logo-img {
@@ -2099,9 +2101,9 @@ h1, h2, h3, h4 {
   }
 
   .nav-actions {
-    flex: 0 0 32%;
-    max-width: 32%;
-    gap: 8px;
+    flex: 0 0 28%;
+    max-width: 28%;
+    gap: 6px;
   }
 
   .theme-toggle, .hamburger {
