@@ -197,7 +197,17 @@ h1, h2, h3, h4 {
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.65));
   transition: transform 0.3s var(--ease-smooth);
 }
+@media (max-width: 768px) {
+    .brand-logo-img {
+        height: 70px;
+    }
+}
 
+@media (max-width: 480px) {
+    .brand-logo-img {
+        height: 60px;
+    }
+}
 .brand-logo-img:hover {
   transform: scale(1.04);
 }
