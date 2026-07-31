@@ -1949,9 +1949,10 @@ h1, h2, h3, h4 {
     display: none;
   }
 
+  /* INCREASE NAVBAR HEIGHT SO THE LOGO CAN GROW MUCH TALLER */
   .navbar {
     padding: 0.45rem 0.85rem;
-    height: 74px;
+    height: 86px; /* Increased from 74px to allow 50% larger logo height */
     display: flex;
     align-items: center;
   }
@@ -1967,28 +1968,29 @@ h1, h2, h3, h4 {
 
   /* LOGO CONTAINER: MIDPOINT/CENTER IS AT 40% ACROSS THE MOBILE HEADER */
   .logo {
-    flex: 0 0 72%;
-    max-width: 72%;
+    flex: 0 0 74%;
+    max-width: 74%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-left: 8%; /* Center point aligns right at ~40% mark across header */
   }
 
+  /* REMOVED MAX-HEIGHT CAP (INCREASED TO 72px MAX HEIGHT & 270px MAX WIDTH) */
   .brand-logo-img {
     width: 100% !important;
-    max-width: 250px !important;
+    max-width: 270px !important;
     height: auto !important;
-    max-height: 56px !important;
+    max-height: 72px !important; /* Increased from 56px to 72px (+30% vertical height) */
     object-fit: contain;
     object-position: center;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65));
   }
 
-  /* RIGHT SIDE CONTROLS: 28% WIDTH ON FAR RIGHT */
+  /* RIGHT SIDE CONTROLS: 26% WIDTH ON FAR RIGHT */
   .nav-actions {
-    flex: 0 0 28%;
-    max-width: 28%;
+    flex: 0 0 26%;
+    max-width: 26%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -2015,7 +2017,7 @@ h1, h2, h3, h4 {
   .nav-links {
     display: none;
     position: fixed;
-    top: 74px;
+    top: 86px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -2086,34 +2088,34 @@ h1, h2, h3, h4 {
 @media(max-width: 480px) {
   .navbar {
     padding: 0.4rem 0.85rem;
-    height: 72px;
+    height: 80px;
   }
 
   .logo {
-    flex: 0 0 72%;
-    max-width: 72%;
+    flex: 0 0 74%;
+    max-width: 74%;
     padding-left: 6%;
   }
 
   .brand-logo-img {
-    max-height: 52px !important;
-    max-width: 230px !important;
+    max-height: 66px !important; /* Increased from 52px to 66px */
+    max-width: 250px !important;
   }
 
   .nav-actions {
-    flex: 0 0 28%;
-    max-width: 28%;
+    flex: 0 0 26%;
+    max-width: 26%;
     gap: 6px;
   }
 
   .theme-toggle, .hamburger {
-    height: 35px;
-    width: 35px;
+    height: 36px;
+    width: 36px;
     font-size: 0.95rem;
   }
 
   .nav-links {
-    top: 72px;
+    top: 80px;
   }
 
   .hero-slider-section {
