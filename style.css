@@ -185,8 +185,8 @@ h1, h2, h3, h4 {
 
 /* DOUBLED MASSIVE BRAND LOGO BADGE IMAGE */
 .brand-logo-img {
-  height: 180px; /* Doubled desktop size! */
-  width: auto;
+   height: 90px;
+   width: auto;
   max-width: 650px;
   object-fit: contain;
   background: transparent !important;
