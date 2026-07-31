@@ -1942,17 +1942,17 @@ h1, h2, h3, h4 {
 
 /* ==========================================================================
    MOBILE HEADER LAYOUT (< 768px)
-   Layout: Logo center positioned precisely at 40% mark across the header
+   DOUBLED LOGO SIZE (112px MAX-HEIGHT & 350px MAX-WIDTH)
    ========================================================================== */
 @media(max-width: 768px) {
   .top-bar {
     display: none;
   }
 
-  /* INCREASE NAVBAR HEIGHT SO THE LOGO CAN GROW MUCH TALLER */
+  /* INCREASED NAVBAR HEIGHT TO 128px FOR 2X DOUBLED LOGO SIZE */
   .navbar {
-    padding: 0.45rem 0.85rem;
-    height: 86px; /* Increased from 74px to allow 50% larger logo height */
+    padding: 0.55rem 0.85rem;
+    height: 128px; /* Expanded from 74px to 128px */
     display: flex;
     align-items: center;
   }
@@ -1966,31 +1966,31 @@ h1, h2, h3, h4 {
     position: relative;
   }
 
-  /* LOGO CONTAINER: MIDPOINT/CENTER IS AT 40% ACROSS THE MOBILE HEADER */
+  /* LOGO CONTAINER: MIDPOINT/CENTER AT 40% MARK ACROSS THE MOBILE HEADER */
   .logo {
-    flex: 0 0 74%;
-    max-width: 74%;
+    flex: 0 0 76%;
+    max-width: 76%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 8%; /* Center point aligns right at ~40% mark across header */
+    padding-left: 6%;
   }
 
-  /* REMOVED MAX-HEIGHT CAP (INCREASED TO 72px MAX HEIGHT & 270px MAX WIDTH) */
+  /* DOUBLED LOGO IMAGE DIMENSIONS: 112px HEIGHT & 350px MAX WIDTH */
   .brand-logo-img {
     width: 100% !important;
-    max-width: 270px !important;
+    max-width: 350px !important; /* Doubled width boundary */
     height: auto !important;
-    max-height: 72px !important; /* Increased from 56px to 72px (+30% vertical height) */
+    max-height: 112px !important; /* 2x doubled height from original 56px */
     object-fit: contain;
     object-position: center;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65));
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.75));
   }
 
-  /* RIGHT SIDE CONTROLS: 26% WIDTH ON FAR RIGHT */
+  /* RIGHT SIDE CONTROLS: 24% WIDTH ON FAR RIGHT */
   .nav-actions {
-    flex: 0 0 26%;
-    max-width: 26%;
+    flex: 0 0 24%;
+    max-width: 24%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -2003,21 +2003,21 @@ h1, h2, h3, h4 {
     border-radius: 99px;
     padding: 0;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
-    height: 38px;
-    width: 38px;
+    height: 42px;
+    width: 42px;
     flex-shrink: 0;
   }
 
   .nav-links {
     display: none;
     position: fixed;
-    top: 86px;
+    top: 128px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -2087,35 +2087,35 @@ h1, h2, h3, h4 {
 
 @media(max-width: 480px) {
   .navbar {
-    padding: 0.4rem 0.85rem;
-    height: 80px;
+    padding: 0.45rem 0.85rem;
+    height: 118px;
   }
 
   .logo {
-    flex: 0 0 74%;
-    max-width: 74%;
-    padding-left: 6%;
+    flex: 0 0 76%;
+    max-width: 76%;
+    padding-left: 4%;
   }
 
   .brand-logo-img {
-    max-height: 66px !important; /* Increased from 52px to 66px */
-    max-width: 250px !important;
+    max-height: 102px !important; /* 2x doubled height on small phones */
+    max-width: 310px !important;
   }
 
   .nav-actions {
-    flex: 0 0 26%;
-    max-width: 26%;
+    flex: 0 0 24%;
+    max-width: 24%;
     gap: 6px;
   }
 
   .theme-toggle, .hamburger {
-    height: 36px;
-    width: 36px;
-    font-size: 0.95rem;
+    height: 38px;
+    width: 38px;
+    font-size: 1rem;
   }
 
   .nav-links {
-    top: 80px;
+    top: 118px;
   }
 
   .hero-slider-section {
