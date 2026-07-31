@@ -1942,17 +1942,16 @@ h1, h2, h3, h4 {
 
 /* ==========================================================================
    MOBILE HEADER LAYOUT (< 768px)
-   DOUBLED LOGO SIZE (112px MAX-HEIGHT & 350px MAX-WIDTH)
+   CONTROLS (THEME TOGGLE 🌙 & HAMBURGER ☰) MOVED LEFTWARD
    ========================================================================== */
 @media(max-width: 768px) {
   .top-bar {
     display: none;
   }
 
-  /* INCREASED NAVBAR HEIGHT TO 128px FOR 2X DOUBLED LOGO SIZE */
   .navbar {
     padding: 0.55rem 0.85rem;
-    height: 128px; /* Expanded from 74px to 128px */
+    height: 128px;
     display: flex;
     align-items: center;
   }
@@ -1966,35 +1965,35 @@ h1, h2, h3, h4 {
     position: relative;
   }
 
-  /* LOGO CONTAINER: MIDPOINT/CENTER AT 40% MARK ACROSS THE MOBILE HEADER */
+  /* LOGO CONTAINER */
   .logo {
-    flex: 0 0 76%;
-    max-width: 76%;
+    flex: 0 0 72%;
+    max-width: 72%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 6%;
+    padding-left: 4%;
   }
 
-  /* DOUBLED LOGO IMAGE DIMENSIONS: 112px HEIGHT & 350px MAX WIDTH */
   .brand-logo-img {
     width: 100% !important;
-    max-width: 350px !important; /* Doubled width boundary */
+    max-width: 350px !important;
     height: auto !important;
-    max-height: 112px !important; /* 2x doubled height from original 56px */
+    max-height: 112px !important;
     object-fit: contain;
     object-position: center;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.75));
   }
 
-  /* RIGHT SIDE CONTROLS: 24% WIDTH ON FAR RIGHT */
+  /* RIGHT SIDE CONTROLS: MOVED LEFTWARD (JUSTIFY-CONTENT FLEX-START) */
   .nav-actions {
-    flex: 0 0 24%;
-    max-width: 24%;
+    flex: 0 0 28%;
+    max-width: 28%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start; /* Moved controls towards left side */
     align-items: center;
     gap: 8px;
+    margin-left: 0;
   }
 
   .theme-toggle, .hamburger {
@@ -2092,19 +2091,20 @@ h1, h2, h3, h4 {
   }
 
   .logo {
-    flex: 0 0 76%;
-    max-width: 76%;
-    padding-left: 4%;
+    flex: 0 0 72%;
+    max-width: 72%;
+    padding-left: 2%;
   }
 
   .brand-logo-img {
-    max-height: 102px !important; /* 2x doubled height on small phones */
+    max-height: 102px !important;
     max-width: 310px !important;
   }
 
   .nav-actions {
-    flex: 0 0 24%;
-    max-width: 24%;
+    flex: 0 0 28%;
+    max-width: 28%;
+    justify-content: flex-start; /* Moved controls towards left side */
     gap: 6px;
   }
 
