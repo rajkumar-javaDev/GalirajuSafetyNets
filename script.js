@@ -35,7 +35,7 @@ if (hamburger && navLinks) {
 }
 
 /* ==========================================================================
-   IMAGE-FIRST HERO SLIDER CONTROLLER (5 SECOND TIMER & FIRST-SLIDE ANIMATION)
+   IMAGE-FIRST HERO SLIDER CONTROLLER (5 SECOND TIMER & CLEAN AUTOMATIC SLIDER)
    ========================================================================== */
 const heroSection = document.getElementById('hero');
 const slides = document.querySelectorAll('.hero-slide');
@@ -51,7 +51,7 @@ let progressStartTime = null;
 let progressReqAnim = null;
 const SLIDE_DURATION = 5000; // Exactly 5 seconds per slide
 
-// Generate Navigation Dots
+// Generate Navigation Dots if container exists
 if (heroDotsContainer && slides.length > 0) {
   slides.forEach((_, idx) => {
     const dot = document.createElement('div');
@@ -105,10 +105,14 @@ function goToSlide(nextIndex) {
     if (currentSlide) {
       currentSlide.classList.remove('active', 'exiting');
     }
-    nextSlide.classList.add('active');
+    if (nextSlide) {
+      nextSlide.classList.add('active');
+    }
 
-    // Update Dots
-    heroDots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+    // Update Dots if present
+    if (heroDots.length > 0) {
+      heroDots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+    }
     currentSlideIndex = nextIndex;
 
     // Reset Progress Bar
@@ -189,7 +193,6 @@ if (slides.length > 0) {
     }, 120);
   });
 
-  // Fallback if DOMContentLoaded fired
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
     setTimeout(() => {
       slides[0].classList.add('active');
