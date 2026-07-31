@@ -158,7 +158,7 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   z-index: 999;
-  padding: 0.65rem 1.25rem;
+  padding: 0.65rem 1.5rem;
   transition: all 0.4s var(--ease-smooth);
   background: var(--glass);
   backdrop-filter: blur(20px);
@@ -168,23 +168,22 @@ h1, h2, h3, h4 {
 }
 
 .nav-inner {
-  max-width: 1280px;
+  max-width: 1240px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
 }
 
 /* BRAND LOGO BADGE IMAGE WITH CRYSTAL TRANSPARENT BACKGROUND */
 .brand-logo-img {
-  height: 54px;
+  height: 60px;
   width: auto;
   max-width: 220px;
   object-fit: contain;
@@ -195,8 +194,6 @@ h1, h2, h3, h4 {
   box-shadow: none !important;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
   transition: transform 0.3s var(--ease-smooth);
-  flex-shrink: 0;
-  display: block;
 }
 
 .brand-logo-img:hover {
@@ -206,15 +203,14 @@ h1, h2, h3, h4 {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.1rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .nav-links a {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text2);
-  white-space: nowrap;
   transition: color 0.25s var(--ease-smooth);
 }
 
@@ -225,7 +221,7 @@ h1, h2, h3, h4 {
 .nav-cta {
   background: linear-gradient(135deg, var(--accent), var(--accent2)) !important;
   color: #fff !important;
-  padding: 0.5rem 1.1rem;
+  padding: 0.55rem 1.35rem;
   border-radius: 99px;
   font-weight: 700 !important;
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
@@ -233,9 +229,8 @@ h1, h2, h3, h4 {
 
 .nav-actions {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.75rem;
   align-items: center;
-  flex-shrink: 0;
 }
 
 .nav-phone-btn {
@@ -244,11 +239,10 @@ h1, h2, h3, h4 {
   gap: 0.4rem;
   background: rgba(37, 99, 235, 0.15);
   border: 1px solid rgba(37, 99, 235, 0.3);
-  padding: 0.45rem 0.85rem;
+  padding: 0.45rem 0.95rem;
   border-radius: 99px;
   color: #60a5fa;
-  font-size: 0.85rem;
-  white-space: nowrap;
+  font-size: 0.88rem;
   transition: all 0.3s var(--ease-smooth);
 }
 
@@ -1938,22 +1932,6 @@ h1, h2, h3, h4 {
 }
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
-@media(max-width: 1100px) and (min-width: 769px) {
-  .nav-links {
-    gap: 0.65rem;
-  }
-  .nav-links a {
-    font-size: 0.8rem;
-  }
-  .brand-logo-img {
-    height: 44px;
-    max-width: 180px;
-  }
-  .nav-cta {
-    padding: 0.45rem 0.85rem;
-  }
-}
-
 @media(max-width: 992px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -1965,42 +1943,19 @@ h1, h2, h3, h4 {
     display: none;
   }
 
-  .navbar {
-    padding: 0.5rem 0.85rem;
-  }
-
-  .brand-logo-img {
-    height: 38px !important;
-    max-width: 150px !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  .nav-phone-btn {
-    display: inline-flex !important;
-    padding: 0.38rem 0.65rem !important;
-    font-size: 0.76rem !important;
-  }
-
-  .nav-phone-text {
-    display: inline !important;
-  }
-
   .nav-links {
     display: none;
     position: fixed;
-    top: 56px;
+    top: 60px;
     left: 0;
     right: 0;
     flex-direction: column;
     background: var(--bg2);
     border-bottom: 1px solid var(--card-border);
-    padding: 1.5rem;
-    gap: 1.1rem;
+    padding: 1.8rem;
+    gap: 1.25rem;
     align-items: flex-start;
     box-shadow: var(--shadow);
-    z-index: 1001;
   }
 
   .nav-links.open {
@@ -2009,8 +1964,14 @@ h1, h2, h3, h4 {
 
   .hamburger {
     display: flex;
-    font-size: 1.2rem;
-    padding: 0.35rem 0.65rem;
+  }
+
+  .nav-phone-btn {
+    display: none;
+  }
+
+  .brand-logo-img {
+    height: 48px;
   }
 
   .hero-slide {
