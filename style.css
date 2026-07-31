@@ -184,9 +184,9 @@ h1, h2, h3, h4 {
 
 /* CLEAN BRAND LOGO BADGE IMAGE */
 .brand-logo-img {
-  height: 54px;
+  height: 60px;
   width: auto;
-  max-width: 220px;
+  max-width: 280px;
   object-fit: contain;
   background: transparent !important;
   padding: 0 !important;
@@ -1946,18 +1946,32 @@ h1, h2, h3, h4 {
   }
 
   .nav-inner {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    flex-direction: row-reverse; /* Reverses order: Logo on RIGHT, Actions/Hamburger on LEFT */
+    gap: 0.5rem;
   }
 
   .logo {
-    justify-content: flex-start;
-    margin-left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    margin-left: auto;
+  }
+
+  .brand-logo-img {
+    height: auto !important;
+    width: 270px !important; /* Very high logo width on mobile! */
+    max-width: 78vw !important; /* Spans up to 78% of mobile screen width! */
+    object-fit: contain;
   }
 
   .nav-links {
     display: none;
     position: fixed;
-    top: 60px;
+    top: 90px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -1979,11 +1993,6 @@ h1, h2, h3, h4 {
 
   .nav-phone-btn {
     display: none;
-  }
-
-  .brand-logo-img {
-    height: 42px;
-    max-width: 170px;
   }
 
   .hero-slide {
@@ -2036,12 +2045,12 @@ h1, h2, h3, h4 {
 
 @media(max-width: 480px) {
   .brand-logo-img {
-    height: 38px;
-    max-width: 150px;
+    width: 240px !important;
+    max-width: 75vw !important;
   }
 
   .nav-links {
-    top: 56px;
+    top: 85px;
   }
 
   .hero-slider-section {
