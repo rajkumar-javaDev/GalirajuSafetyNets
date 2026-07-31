@@ -34,24 +34,169 @@ if (hamburger && navLinks) {
   });
 }
 
-/* ===== HERO PARTICLES ===== */
-function createParticles() {
-  const container = document.getElementById('particles');
-  if (!container) return;
-  for (let i = 0; i < 20; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    const size = Math.random() * 4 + 2;
-    p.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${Math.random() * 100}%;
-      animation-duration:${Math.random() * 12 + 8}s;
-      animation-delay:${Math.random() * 8}s;
-    `;
-    container.appendChild(p);
+/* ==========================================================================
+   IMAGE-FIRST HERO SLIDER CONTROLLER (5 SECOND TIMER & FIRST-SLIDE ANIMATION)
+   ========================================================================== */
+const heroSection = document.getElementById('hero');
+const slides = document.querySelectorAll('.hero-slide');
+const heroPrev = document.getElementById('heroPrev');
+const heroNext = document.getElementById('heroNext');
+const heroDotsContainer = document.getElementById('heroDots');
+const progressFill = document.getElementById('heroProgressFill');
+
+let currentSlideIndex = 0;
+let isSlideTransitioning = false;
+let autoPlayTimer = null;
+let progressStartTime = null;
+let progressReqAnim = null;
+const SLIDE_DURATION = 5000; // Exactly 5 seconds per slide
+
+// Generate Navigation Dots
+if (heroDotsContainer && slides.length > 0) {
+  slides.forEach((_, idx) => {
+    const dot = document.createElement('div');
+    dot.className = `hero-dot ${idx === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => {
+      if (idx !== currentSlideIndex) {
+        goToSlide(idx);
+      }
+    });
+    heroDotsContainer.appendChild(dot);
+  });
+}
+
+const heroDots = document.querySelectorAll('.hero-dot');
+
+// Progress Bar Timer Animation
+function startProgressBar() {
+  if (!progressFill) return;
+  cancelAnimationFrame(progressReqAnim);
+  progressFill.style.width = '0%';
+  progressStartTime = performance.now();
+
+  function step(now) {
+    const elapsed = now - progressStartTime;
+    const pct = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+    progressFill.style.width = pct + '%';
+
+    if (pct < 100) {
+      progressReqAnim = requestAnimationFrame(step);
+    }
+  }
+
+  progressReqAnim = requestAnimationFrame(step);
+}
+
+// Go To Slide Function (Reverse Exit -> Smooth Image-First Entry)
+function goToSlide(nextIndex) {
+  if (isSlideTransitioning || slides.length === 0) return;
+  isSlideTransitioning = true;
+
+  const currentSlide = slides[currentSlideIndex];
+  const nextSlide = slides[nextIndex];
+
+  // Step 1: Reverse exit sequence
+  if (currentSlide) {
+    currentSlide.classList.add('exiting');
+  }
+
+  // Step 2: Swap slide after 300ms
+  setTimeout(() => {
+    if (currentSlide) {
+      currentSlide.classList.remove('active', 'exiting');
+    }
+    nextSlide.classList.add('active');
+
+    // Update Dots
+    heroDots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+    currentSlideIndex = nextIndex;
+
+    // Reset Progress Bar
+    startProgressBar();
+
+    // Reset Lock
+    setTimeout(() => {
+      isSlideTransitioning = false;
+    }, 600);
+  }, 300);
+
+  resetAutoPlay();
+}
+
+// Auto-Play Control
+function startAutoPlay() {
+  stopAutoPlay();
+  startProgressBar();
+  autoPlayTimer = setInterval(() => {
+    const nextIdx = (currentSlideIndex + 1) % slides.length;
+    goToSlide(nextIdx);
+  }, SLIDE_DURATION);
+}
+
+function stopAutoPlay() {
+  if (autoPlayTimer) clearInterval(autoPlayTimer);
+  cancelAnimationFrame(progressReqAnim);
+}
+
+function resetAutoPlay() {
+  stopAutoPlay();
+  startAutoPlay();
+}
+
+// Controls
+if (heroNext) {
+  heroNext.addEventListener('click', () => {
+    const nextIdx = (currentSlideIndex + 1) % slides.length;
+    goToSlide(nextIdx);
+  });
+}
+
+if (heroPrev) {
+  heroPrev.addEventListener('click', () => {
+    const prevIdx = (currentSlideIndex - 1 + slides.length) % slides.length;
+    goToSlide(prevIdx);
+  });
+}
+
+// Mouse & Touch Gestures
+if (heroSection) {
+  heroSection.addEventListener('mouseenter', stopAutoPlay);
+  heroSection.addEventListener('mouseleave', startAutoPlay);
+
+  let touchStartX = 0;
+  heroSection.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  heroSection.addEventListener('touchend', e => {
+    const touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      const nextIdx = (currentSlideIndex + 1) % slides.length;
+      goToSlide(nextIdx);
+    } else if (touchEndX - touchStartX > 50) {
+      const prevIdx = (currentSlideIndex - 1 + slides.length) % slides.length;
+      goToSlide(prevIdx);
+    }
+  }, { passive: true });
+}
+
+// Initialize Slider with full entrance animation on website load
+if (slides.length > 0) {
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      slides[0].classList.add('active');
+      startAutoPlay();
+    }, 120);
+  });
+
+  // Fallback if DOMContentLoaded fired
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(() => {
+      slides[0].classList.add('active');
+      startAutoPlay();
+    }, 120);
   }
 }
-createParticles();
 
 /* ===== SCROLL REVEAL ===== */
 const revealObserver = new IntersectionObserver((entries) => {
@@ -118,7 +263,7 @@ if (lightboxModal) {
 
       lightboxImg.src = img;
       lightboxTitle.textContent = title;
-      lightboxLoc.textContent = `📍 Location: ${loc}`;
+      lightboxLoc.textContent = `📍 Details: ${loc}`;
       lightboxTag.textContent = cat;
 
       lightboxModal.classList.add('open');
