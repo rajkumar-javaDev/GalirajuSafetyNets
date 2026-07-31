@@ -158,7 +158,7 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   z-index: 999;
-  padding: 0.4rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   transition: all 0.4s var(--ease-smooth);
   background: var(--glass);
   backdrop-filter: blur(20px);
@@ -179,22 +179,22 @@ h1, h2, h3, h4 {
 .logo {
   display: flex;
   align-items: center;
-  flex: 1;
-  min-width: 0;
+  justify-content: flex-end;
+  margin-left: auto; /* Moves logo towards the right side */
 }
 
-/* BIG PROMINENT BRAND LOGO MATCHING REFERENCE SITE */
+/* DOUBLED MASSIVE BRAND LOGO BADGE IMAGE */
 .brand-logo-img {
-  height: 105px;
+  height: 180px; /* Doubled desktop size! */
   width: auto;
-  max-width: 420px;
+  max-width: 650px;
   object-fit: contain;
   background: transparent !important;
   padding: 0 !important;
   border-radius: 0 !important;
   border: none !important;
   box-shadow: none !important;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.65));
   transition: transform 0.3s var(--ease-smooth);
 }
 
@@ -1946,10 +1946,19 @@ h1, h2, h3, h4 {
     display: none;
   }
 
+  .nav-inner {
+    justify-content: space-between;
+  }
+
+  .logo {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
   .nav-links {
     display: none;
     position: fixed;
-    top: 80px;
+    top: 140px; /* Offset for larger header height */
     left: 0;
     right: 0;
     flex-direction: column;
@@ -1974,8 +1983,8 @@ h1, h2, h3, h4 {
   }
 
   .brand-logo-img {
-    height: 75px; /* Huge mobile logo matching reference screenshot! */
-    max-width: 270px;
+    height: 130px; /* Doubled mobile logo height! */
+    max-width: 340px;
   }
 
   .hero-slide {
@@ -2028,8 +2037,12 @@ h1, h2, h3, h4 {
 
 @media(max-width: 480px) {
   .brand-logo-img {
-    height: 70px;
-    max-width: 240px;
+    height: 110px;
+    max-width: 290px;
+  }
+
+  .nav-links {
+    top: 120px;
   }
 
   .hero-slider-section {
