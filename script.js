@@ -201,6 +201,115 @@ if (slides.length > 0) {
   }
 }
 
+/* ==========================================================================
+   CUSTOMER REVIEWS AUTOMATIC CAROUSEL SLIDER (SPACE-SAVING & SMOOTH AUTO-PLAY)
+   ========================================================================== */
+const reviewsTrack = document.getElementById('reviewsTrack');
+const reviewsPrev = document.getElementById('reviewsPrev');
+const reviewsNext = document.getElementById('reviewsNext');
+const reviewsDotsContainer = document.getElementById('reviewsDots');
+const reviewsContainer = document.getElementById('reviewsSliderContainer');
+
+if (reviewsTrack && reviewsContainer) {
+  const reviewCards = reviewsTrack.querySelectorAll('.testimonial-card');
+  let currentReviewPage = 0;
+  let reviewsAutoTimer = null;
+
+  function getCardsPerView() {
+    if (window.innerWidth <= 640) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
+  }
+
+  function getTotalPages() {
+    return Math.ceil(reviewCards.length / getCardsPerView());
+  }
+
+  function createReviewDots() {
+    if (!reviewsDotsContainer) return;
+    reviewsDotsContainer.innerHTML = '';
+    const totalPages = getTotalPages();
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement('div');
+      dot.className = `review-dot ${i === currentReviewPage ? 'active' : ''}`;
+      dot.addEventListener('click', () => updateReviewsSlider(i));
+      reviewsDotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateReviewsSlider(pageIndex) {
+    const totalPages = getTotalPages();
+    if (totalPages === 0) return;
+    currentReviewPage = (pageIndex + totalPages) % totalPages;
+
+    const cardsPerView = getCardsPerView();
+    const firstCardIndex = currentReviewPage * cardsPerView;
+    const cardWidth = reviewCards[0].getBoundingClientRect().width;
+    const gap = 24; // 1.5rem = 24px
+
+    const offset = firstCardIndex * (cardWidth + gap);
+    reviewsTrack.style.transform = `translateX(-${offset}px)`;
+
+    if (reviewsDotsContainer) {
+      const dots = reviewsDotsContainer.querySelectorAll('.review-dot');
+      dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentReviewPage));
+    }
+  }
+
+  function startReviewsAutoPlay() {
+    stopReviewsAutoPlay();
+    reviewsAutoTimer = setInterval(() => {
+      updateReviewsSlider(currentReviewPage + 1);
+    }, 4000);
+  }
+
+  function stopReviewsAutoPlay() {
+    if (reviewsAutoTimer) clearInterval(reviewsAutoTimer);
+  }
+
+  if (reviewsNext) {
+    reviewsNext.addEventListener('click', () => {
+      updateReviewsSlider(currentReviewPage + 1);
+      startReviewsAutoPlay();
+    });
+  }
+
+  if (reviewsPrev) {
+    reviewsPrev.addEventListener('click', () => {
+      updateReviewsSlider(currentReviewPage - 1);
+      startReviewsAutoPlay();
+    });
+  }
+
+  reviewsContainer.addEventListener('mouseenter', stopReviewsAutoPlay);
+  reviewsContainer.addEventListener('mouseleave', startReviewsAutoPlay);
+
+  // Touch Swipe Support
+  let touchStartX = 0;
+  reviewsContainer.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  reviewsContainer.addEventListener('touchend', e => {
+    const touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 40) {
+      updateReviewsSlider(currentReviewPage + 1);
+      startReviewsAutoPlay();
+    } else if (touchEndX - touchStartX > 40) {
+      updateReviewsSlider(currentReviewPage - 1);
+      startReviewsAutoPlay();
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    createReviewDots();
+    updateReviewsSlider(currentReviewPage);
+  });
+
+  createReviewDots();
+  startReviewsAutoPlay();
+}
+
 /* ===== SCROLL REVEAL ===== */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
