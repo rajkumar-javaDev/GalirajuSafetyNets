@@ -1941,7 +1941,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   MOBILE HEADER & REDESIGNED LOGO OPTIMIZATION (< 768px)
+   REFINED SLIM & COMPACT MOBILE HEADER (< 768px)
    ========================================================================== */
 @media(max-width: 768px) {
   .top-bar {
@@ -1949,46 +1949,58 @@ h1, h2, h3, h4 {
   }
 
   .navbar {
-    padding: 0.7rem 1rem; /* Generous top & bottom padding for uncramped logo spacing */
+    padding: 0.45rem 1rem; /* Reduced header height by 25-30% for maximum hero space */
   }
 
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row; /* LEFT: Logo | RIGHT: Theme toggle & Hamburger */
-    gap: 0.75rem;
+    flex-direction: row; /* [Company Logo (Left ~60-65%)] ------- [🌙  ☰ (Right ~35%)] */
+    gap: 0.5rem;
   }
 
+  /* LEFT SIDE LOGO CONTAINER (60-65% width) */
   .logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex: 1;
-    min-width: 0;
+    flex: 1 1 65%;
+    max-width: 65%;
     margin-left: 0;
   }
 
-  /* 40-60% ENLARGED HIGH-VISIBILITY MOBILE LOGO BADGE */
+  /* COMPACT YET FULLY READABLE MOBILE LOGO BADGE */
   .brand-logo-img {
-    height: 58px !important; /* +50% height increase for immediate brand name readability */
-    width: auto !important; /* Preserves exact original aspect ratio with zero distortion */
-    max-width: calc(100vw - 120px) !important; /* Guaranteed zero overlap with right controls */
+    height: 44px !important; /* Scaled to fit 25-30% shorter header while keeping name 100% crisp & readable */
+    width: auto !important; /* Preserves exact aspect ratio */
+    max-width: 100% !important;
     object-fit: contain;
-    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.65));
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
   }
 
+  /* RIGHT SIDE CONTROLS CONTAINER (35% width) */
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    flex-shrink: 0;
+    justify-content: flex-end;
+    gap: 0.65rem;
+    flex: 0 0 35%;
+    max-width: 35%;
+  }
+
+  .theme-toggle, .hamburger {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-links {
     display: none;
     position: fixed;
-    top: 76px; /* Offset for enlarged mobile header height */
+    top: 58px; /* Offset for compact mobile header height */
     left: 0;
     right: 0;
     flex-direction: column;
@@ -2002,12 +2014,6 @@ h1, h2, h3, h4 {
 
   .nav-links.open {
     display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .nav-phone-btn {
@@ -2064,16 +2070,15 @@ h1, h2, h3, h4 {
 
 @media(max-width: 480px) {
   .navbar {
-    padding: 0.6rem 0.85rem;
+    padding: 0.4rem 0.85rem;
   }
 
   .brand-logo-img {
-    height: 52px !important;
-    max-width: calc(100vw - 110px) !important;
+    height: 40px !important;
   }
 
   .nav-links {
-    top: 70px;
+    top: 54px;
   }
 
   .hero-slider-section {
