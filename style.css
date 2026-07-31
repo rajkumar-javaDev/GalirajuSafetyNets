@@ -50,11 +50,12 @@ a {
   --gold: #f59e0b;
   --card: rgba(255, 255, 255, 0.04);
   --card-border: rgba(255, 255, 255, 0.08);
-  --glass: rgba(18, 19, 28, 0.75);
+  --glass: rgba(18, 19, 28, 0.85);
   --glass-border: rgba(255, 255, 255, 0.12);
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   --radius: 16px;
   --radius-sm: 10px;
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="light"] {
@@ -157,7 +158,7 @@ h1, h2, h3, h4 {
   right: 0;
   z-index: 999;
   padding: 0.85rem 1.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s var(--ease-smooth);
   background: var(--glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -203,7 +204,7 @@ h1, h2, h3, h4 {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text2);
-  transition: color 0.2s;
+  transition: color 0.25s var(--ease-smooth);
 }
 
 .nav-links a:hover {
@@ -213,7 +214,7 @@ h1, h2, h3, h4 {
 .nav-cta {
   background: linear-gradient(135deg, var(--accent), var(--accent2)) !important;
   color: #fff !important;
-  padding: 0.5rem 1.25rem;
+  padding: 0.55rem 1.35rem;
   border-radius: 99px;
   font-weight: 700 !important;
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
@@ -231,16 +232,17 @@ h1, h2, h3, h4 {
   gap: 0.4rem;
   background: rgba(37, 99, 235, 0.15);
   border: 1px solid rgba(37, 99, 235, 0.3);
-  padding: 0.4rem 0.85rem;
+  padding: 0.45rem 0.95rem;
   border-radius: 99px;
   color: #60a5fa;
   font-size: 0.88rem;
-  transition: all 0.2s;
+  transition: all 0.3s var(--ease-smooth);
 }
 
 .nav-phone-btn:hover {
-  background: rgba(37, 99, 235, 0.3);
-  transform: translateY(-1px);
+  background: rgba(37, 99, 235, 0.35);
+  transform: translateY(-2px);
+  color: #fff;
 }
 
 .theme-toggle, .hamburger {
@@ -270,7 +272,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s var(--ease-smooth);
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -284,7 +286,7 @@ h1, h2, h3, h4 {
 
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 35px rgba(124, 58, 237, 0.5);
+  box-shadow: 0 14px 35px rgba(124, 58, 237, 0.55);
 }
 
 .btn-call {
@@ -294,8 +296,8 @@ h1, h2, h3, h4 {
 }
 
 .btn-call:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.6);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(37, 99, 235, 0.65);
 }
 
 .btn-wa {
@@ -305,8 +307,8 @@ h1, h2, h3, h4 {
 }
 
 .btn-wa:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.65);
 }
 
 .btn-ghost {
@@ -317,7 +319,7 @@ h1, h2, h3, h4 {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   border-color: var(--accent2);
   transform: translateY(-2px);
 }
@@ -325,6 +327,45 @@ h1, h2, h3, h4 {
 .btn-large {
   padding: 1.1rem 2.5rem;
   font-size: 1.1rem;
+}
+
+/* SUBTLE HIGHLIGHT PULSE ANIMATION */
+.btn-highlight-pulse {
+  animation: subtleCtaPulse 3.5s var(--ease-smooth) infinite;
+}
+
+@keyframes subtleCtaPulse {
+  0%, 100% {
+    box-shadow: 0 6px 22px rgba(37, 99, 235, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 10px 32px rgba(37, 99, 235, 0.75), 0 0 15px rgba(56, 189, 248, 0.45);
+    transform: scale(1.025);
+  }
+}
+
+/* SOFT PHONE RING WIGGLE */
+.phone-ring {
+  display: inline-block;
+  animation: softPhoneRing 4s ease-in-out infinite;
+}
+
+@keyframes softPhoneRing {
+  0%, 80%, 100% { transform: rotate(0deg); }
+  84% { transform: rotate(-10deg); }
+  88% { transform: rotate(10deg); }
+  92% { transform: rotate(-5deg); }
+  96% { transform: rotate(5deg); }
+}
+
+.pulse-glow {
+  animation: gentleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes gentleGlow {
+  0% { box-shadow: 0 0 12px rgba(37, 99, 235, 0.3); }
+  100% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.7); }
 }
 
 .ripple {
@@ -348,7 +389,7 @@ h1, h2, h3, h4 {
   }
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION WITH CINEMATIC VIDEO PLAYING ANIMATION ===== */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -370,14 +411,37 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.35) contrast(1.1);
-  transform: scale(1.05);
-  animation: slowZoom 20s infinite alternate;
+  filter: brightness(0.38) contrast(1.15);
+  animation: cinematicVideoPlay 22s ease-in-out infinite alternate;
 }
 
-@keyframes slowZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
+@keyframes cinematicVideoPlay {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  33% {
+    transform: scale(1.1) translate(-12px, -8px);
+  }
+  66% {
+    transform: scale(1.05) translate(10px, 12px);
+  }
+  100% {
+    transform: scale(1.12) translate(-5px, 10px);
+  }
+}
+
+.video-light-sweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.08) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: videoSweep 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes videoSweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .hero-gradient {
@@ -524,16 +588,16 @@ h1, h2, h3, h4 {
   font-size: 0.88rem;
   font-weight: 700;
   box-shadow: var(--shadow);
-  animation: float 4s ease-in-out infinite;
+  animation: smoothFloat 5s ease-in-out infinite;
 }
 
 .float-card-1 { top: 22%; left: 4%; animation-delay: 0s; }
-.float-card-2 { top: 38%; right: 4%; animation-delay: 1.3s; }
-.float-card-3 { bottom: 25%; left: 6%; animation-delay: 2.6s; }
+.float-card-2 { top: 38%; right: 4%; animation-delay: 1.6s; }
+.float-card-3 { bottom: 25%; left: 6%; animation-delay: 3.2s; }
 
-@keyframes float {
+@keyframes smoothFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+  50% { transform: translateY(-12px); }
 }
 
 .scroll-down {
@@ -542,7 +606,7 @@ h1, h2, h3, h4 {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  animation: float 2s ease-in-out infinite;
+  animation: smoothFloat 2s ease-in-out infinite;
 }
 
 .scroll-arrow {
@@ -571,7 +635,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.3s, border-color 0.3s;
+  transition: transform 0.4s var(--ease-smooth), border-color 0.3s;
 }
 
 .problem-card:hover {
@@ -581,7 +645,7 @@ h1, h2, h3, h4 {
 
 .problem-img-wrap {
   position: relative;
-  height: 180px;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -589,7 +653,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s;
+  transition: transform 0.5s var(--ease-smooth);
 }
 
 .problem-card:hover .problem-card-img {
@@ -658,7 +722,7 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
-/* ===== SERVICES SECTION (IMAGE-FIRST) ===== */
+/* ===== SERVICES SECTION (ALL CARDS SHOW INSTALLED NETS) ===== */
 .services {
   padding: 6rem 0;
   text-align: center;
@@ -677,13 +741,13 @@ h1, h2, h3, h4 {
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+  transition: transform 0.4s var(--ease-smooth), border-color 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   border-color: rgba(56, 189, 248, 0.5);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
@@ -698,7 +762,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s var(--ease-smooth);
 }
 
 .service-card:hover .service-img {
@@ -791,7 +855,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-sm);
   font-size: 0.88rem;
   font-weight: 700;
-  transition: all 0.2s;
+  transition: all 0.25s var(--ease-smooth);
 }
 
 .btn-card-call:hover {
@@ -808,7 +872,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-sm);
   font-size: 0.88rem;
   font-weight: 700;
-  transition: all 0.2s;
+  transition: all 0.25s var(--ease-smooth);
 }
 
 .btn-card-wa:hover {
@@ -816,7 +880,7 @@ h1, h2, h3, h4 {
   color: #fff;
 }
 
-/* ===== PHOTO GALLERY SECTION (BIGGEST SECTION) ===== */
+/* ===== PHOTO GALLERY SECTION ===== */
 .gallery-section {
   padding: 6rem 0;
   background: var(--bg2);
@@ -840,7 +904,7 @@ h1, h2, h3, h4 {
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-smooth);
 }
 
 .g-filter:hover, .g-filter.active {
@@ -862,7 +926,7 @@ h1, h2, h3, h4 {
   overflow: hidden;
   cursor: pointer;
   box-shadow: var(--shadow);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s var(--ease-smooth), opacity 0.4s ease;
 }
 
 .gallery-card.hide {
@@ -879,17 +943,17 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s var(--ease-smooth);
 }
 
 .gallery-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .g-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(9, 10, 15, 0.9) 0%, rgba(9, 10, 15, 0.2) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(9, 10, 15, 0.9) 0%, rgba(9, 10, 15, 0.25) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -913,7 +977,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   font-size: 1.1rem;
   color: #fff;
-  transition: transform 0.3s;
+  transition: transform 0.3s var(--ease-smooth);
 }
 
 .gallery-card:hover .g-zoom-icon {
@@ -953,7 +1017,7 @@ h1, h2, h3, h4 {
   padding: 1.5rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s var(--ease-smooth);
 }
 
 .lightbox-modal.open {
@@ -970,11 +1034,11 @@ h1, h2, h3, h4 {
   overflow: hidden;
   position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-  animation: modalPop 0.3s ease;
+  animation: modalPop 0.35s var(--ease-smooth);
 }
 
 @keyframes modalPop {
-  from { transform: scale(0.9) translateY(20px); }
+  from { transform: scale(0.92) translateY(20px); }
   to { transform: scale(1) translateY(0); }
 }
 
@@ -1154,19 +1218,6 @@ h1, h2, h3, h4 {
   object-fit: cover;
 }
 
-.ba-scene {
-  background: linear-gradient(135deg, #2a0a0a, #150505);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-}
-
 .ba-scene-after-overlay {
   position: absolute;
   inset: 0;
@@ -1179,8 +1230,6 @@ h1, h2, h3, h4 {
   color: #fff;
 }
 
-.ba-icon-pigeon { font-size: 3rem; margin-bottom: 0.5rem; }
-.ba-icon-mess { font-size: 2rem; position: absolute; top: 30%; left: 20%; }
 .ba-shield { font-size: 3.5rem; margin-bottom: 0.5rem; }
 .ba-stars { font-size: 1.2rem; margin-top: 0.3rem; }
 
@@ -1233,7 +1282,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: 2rem;
-  transition: transform 0.3s;
+  transition: transform 0.35s var(--ease-smooth);
 }
 
 .why-card:hover {
@@ -1324,40 +1373,43 @@ h1, h2, h3, h4 {
   background: linear-gradient(to bottom, rgba(124, 58, 237, 0.6), transparent);
 }
 
-/* ===== TESTIMONIALS ===== */
+/* ===== EXPANDED CUSTOMER REVIEWS GRID ===== */
 .testimonials {
   padding: 6rem 0;
   text-align: center;
 }
 
-.testimonials-track {
-  display: flex;
-  gap: 1.5rem;
-  overflow: hidden;
-  position: relative;
-  margin: 2.5rem 0 1.5rem;
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.6rem;
+  margin-top: 2.5rem;
+  text-align: left;
 }
 
 .testimonial-card {
   background: var(--card);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  padding: 2rem;
-  min-width: calc(33.33% - 1rem);
-  flex-shrink: 0;
-  text-align: left;
+  padding: 1.8rem;
+  transition: transform 0.35s var(--ease-smooth), border-color 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.4);
 }
 
 .t-stars {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .testimonial-card p {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: var(--text2);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  line-height: 1.65;
+  margin-bottom: 1.4rem;
   font-style: italic;
 }
 
@@ -1389,43 +1441,6 @@ h1, h2, h3, h4 {
 .t-info span {
   font-size: 0.82rem;
   color: var(--text2);
-}
-
-.testimonials-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.t-nav-btn {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  color: var(--text);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.1rem;
-}
-
-.t-dots {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.t-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--card-border);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.t-dot.active {
-  background: var(--accent2);
-  transform: scale(1.4);
 }
 
 /* ===== FAQ ACCORDION ===== */
@@ -1470,7 +1485,7 @@ h1, h2, h3, h4 {
 .faq-icon {
   font-size: 1.4rem;
   color: #38bdf8;
-  transition: transform 0.3s;
+  transition: transform 0.3s var(--ease-smooth);
 }
 
 .faq-item.open .faq-icon {
@@ -1480,7 +1495,7 @@ h1, h2, h3, h4 {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height 0.35s var(--ease-smooth), padding 0.35s var(--ease-smooth);
   padding: 0 1.5rem;
   color: var(--text2);
   font-size: 0.95rem;
@@ -1703,7 +1718,7 @@ h1, h2, h3, h4 {
   font-size: 1.8rem;
   color: #fff;
   box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-  transition: transform 0.3s;
+  transition: transform 0.3s var(--ease-smooth);
 }
 
 .whatsapp-float:hover {
@@ -1784,8 +1799,8 @@ h1, h2, h3, h4 {
 /* ===== SCROLL REVEAL ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(22px);
+  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
 }
 
 .reveal.visible {

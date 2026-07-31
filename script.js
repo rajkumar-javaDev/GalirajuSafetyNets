@@ -169,49 +169,6 @@ if (baSlider && baDivider) {
   window.addEventListener('touchend', () => { dragging = false; });
 }
 
-/* ===== TESTIMONIALS CAROUSEL ===== */
-const track = document.getElementById('testimonialsTrack');
-const tPrev = document.getElementById('tPrev');
-const tNext = document.getElementById('tNext');
-const tDotsEl = document.getElementById('tDots');
-
-if (track) {
-  const cards = track.querySelectorAll('.testimonial-card');
-  const total = cards.length;
-  let current = 0;
-
-  cards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 't-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goTo(i));
-    tDotsEl.appendChild(dot);
-  });
-
-  function getVisible() {
-    return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
-  }
-
-  function goTo(idx) {
-    const vis = getVisible();
-    const max = Math.max(0, total - vis);
-    current = Math.min(Math.max(idx, 0), max);
-    const cardW = cards[0].offsetWidth + 24;
-    track.style.transform = `translateX(-${current * cardW}px)`;
-    track.style.transition = 'transform .4s ease';
-    tDotsEl.querySelectorAll('.t-dot').forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  if (tPrev) tPrev.addEventListener('click', () => goTo(current - 1));
-  if (tNext) tNext.addEventListener('click', () => goTo(current + 1));
-  window.addEventListener('resize', () => goTo(0));
-
-  setInterval(() => {
-    const vis = getVisible();
-    const max = Math.max(0, total - vis);
-    goTo(current < max ? current + 1 : 0);
-  }, 4500);
-}
-
 /* ===== FAQ ACCORDION ===== */
 document.querySelectorAll('.faq-question').forEach(btn => {
   btn.addEventListener('click', () => {
