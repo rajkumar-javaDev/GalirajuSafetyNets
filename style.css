@@ -391,7 +391,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   IMAGE-FIRST HERO SLIDER SECTION (REDUCED BOTTOM GAP BELOW BUTTONS)
+   IMAGE-FIRST HERO SLIDER SECTION
    ========================================================================== */
 .hero-slider-section {
   position: relative;
@@ -421,7 +421,7 @@ h1, h2, h3, h4 {
   z-index: 1;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 2rem; /* Reduced bottom gap so content & buttons sit close to bottom progress line */
+  padding-bottom: 2.2rem;
 }
 
 .hero-slide.active {
@@ -496,7 +496,7 @@ h1, h2, h3, h4 {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* HERO SLEEK SERVICE LOCATION RIBBON */
+/* HERO SLEEK SERVICE LOCATION RIBBON DIRECTLY ABOVE CALL BUTTONS */
 .hero-location-ribbon {
   display: inline-flex;
   align-items: center;
@@ -512,6 +512,7 @@ h1, h2, h3, h4 {
   border-radius: 99px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   line-height: 1.4;
+  margin-bottom: 1rem;
 }
 
 .hero-location-ribbon strong {
@@ -604,7 +605,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
   color: #f3f4f6;
   max-width: 650px;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.85rem;
   line-height: 1.45;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
@@ -1880,13 +1881,11 @@ h1, h2, h3, h4 {
   }
 
   .hero-slide {
-    padding-bottom: 1.5rem; /* Reduced gap below call buttons on mobile */
+    padding-bottom: 1.5rem;
   }
 
   .hero-top-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
+    margin-bottom: 0.4rem;
   }
 
   .hero-location-ribbon {
@@ -1896,6 +1895,7 @@ h1, h2, h3, h4 {
     padding: 0.4rem 0.8rem !important;
     border-radius: 12px !important;
     line-height: 1.4 !important;
+    margin-bottom: 0.85rem !important;
   }
 
   .form-row {
@@ -1935,7 +1935,7 @@ h1, h2, h3, h4 {
 
   .hero-slide-sub {
     font-size: 1.02rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
   }
 
   .hero-slide-btns {
