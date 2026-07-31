@@ -584,60 +584,7 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
 }
 
-/* NAVIGATION CONTROLS & PROGRESS BAR */
-.hero-nav-controls {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(15px);
-  padding: 0.45rem 0.95rem;
-  border-radius: 99px;
-  box-shadow: var(--shadow);
-}
-
-.hero-arrow {
-  background: transparent;
-  border: none;
-  color: var(--text);
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem;
-  transition: color 0.2s, transform 0.2s;
-}
-
-.hero-arrow:hover {
-  color: #38bdf8;
-  transform: scale(1.2);
-}
-
-.hero-dots {
-  display: flex;
-  gap: 0.6rem;
-  align-items: center;
-}
-
-.hero-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: all 0.35s var(--ease-smooth);
-}
-
-.hero-dot.active {
-  width: 26px;
-  border-radius: 99px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
-}
-
+/* PROGRESS BAR */
 .hero-progress-bar {
   position: absolute;
   bottom: 0;
@@ -1122,6 +1069,21 @@ h1, h2, h3, h4 {
   color: var(--text2);
   font-size: 0.95rem;
   margin-bottom: 1.2rem;
+}
+
+.lightbox-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.lightbox-btn {
+  padding: 0.75rem 1.4rem !important;
+  font-size: 0.92rem !important;
+  width: auto !important;
+  flex: 1 1 140px;
+  justify-content: center;
 }
 
 /* ===== RECENT PROJECTS SHOWCASE ===== */
@@ -1932,8 +1894,13 @@ h1, h2, h3, h4 {
     flex-direction: column;
   }
 
-  .btn {
+  .btn:not(.lightbox-btn) {
     width: 100%;
+  }
+
+  .lightbox-btn {
+    width: 100% !important;
+    flex: none !important;
   }
 
   .cta-inner {
