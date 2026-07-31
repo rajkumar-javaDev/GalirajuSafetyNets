@@ -1941,8 +1941,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   DOMINANT 10-COLUMN GRID MOBILE HEADER (< 768px)
-   Layout: [1|2|3|4|5|6|7] ===== LOGO ===== [8|9|10]  🌙   ☰
+   MOBILE HEADER LAYOUT (< 768px)
+   Layout: |<--------- LOGO (68% width) --------->| 🌙 | ☰ (32% width) |
    ========================================================================== */
 @media(max-width: 768px) {
   .top-bar {
@@ -1956,45 +1956,42 @@ h1, h2, h3, h4 {
     align-items: center;
   }
 
-  /* 10 EQUAL COLUMNS GRID SYSTEM */
   .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     max-width: 100%;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    align-items: center;
-    gap: 0.2rem;
   }
 
-  /* LOGO DOMINATES COLUMNS 1 THROUGH 7 (~70% OF HEADER WIDTH) */
+  /* LOGO OCCUPIES 68% OF HEADER WIDTH */
   .logo {
-    grid-column: 1 / span 7;
+    flex: 0 0 68%;
+    max-width: 68%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
-    margin-left: 0;
   }
 
-  /* WIDE, HIGH-READABILITY BRAND LOGO */
+  /* TIGHTLY CROPPED LOGO IMAGE IS 2-3X LARGER & BOLD */
   .brand-logo-img {
-    height: auto !important;
-    max-height: 54px !important;
     width: 100% !important;
-    max-width: 265px !important; /* Spans across 7 columns for maximum readability */
+    max-width: 250px !important;
+    height: auto !important;
+    max-height: 56px !important;
     object-fit: contain;
     object-position: left center;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65));
   }
 
-  /* CONTROLS OCCUPY COLUMNS 8 THROUGH 10 (~30% OF HEADER WIDTH) */
+  /* RIGHT SIDE CONTROLS OCCUPY 32% OF HEADER WIDTH */
   .nav-actions {
-    grid-column: 8 / span 3;
+    flex: 0 0 32%;
+    max-width: 32%;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    gap: 0.5rem;
-    width: 100%;
+    align-items: center;
+    gap: 10px;
   }
 
   .theme-toggle, .hamburger {
@@ -2009,15 +2006,15 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     line-height: 1;
-    height: 36px;
-    width: 36px;
+    height: 38px;
+    width: 38px;
     flex-shrink: 0;
   }
 
   .nav-links {
     display: none;
     position: fixed;
-    top: 74px; /* Offset for exact 74px mobile header height */
+    top: 74px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -2087,19 +2084,30 @@ h1, h2, h3, h4 {
 
 @media(max-width: 480px) {
   .navbar {
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0.85rem;
     height: 72px;
   }
 
+  .logo {
+    flex: 0 0 68%;
+    max-width: 68%;
+  }
+
   .brand-logo-img {
-    max-height: 50px !important;
-    max-width: 240px !important;
+    max-height: 52px !important;
+    max-width: 230px !important;
+  }
+
+  .nav-actions {
+    flex: 0 0 32%;
+    max-width: 32%;
+    gap: 8px;
   }
 
   .theme-toggle, .hamburger {
-    height: 34px;
-    width: 34px;
-    font-size: 0.9rem;
+    height: 35px;
+    width: 35px;
+    font-size: 0.95rem;
   }
 
   .nav-links {
