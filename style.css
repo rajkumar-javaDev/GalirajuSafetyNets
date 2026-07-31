@@ -185,7 +185,7 @@ h1, h2, h3, h4 {
 
 /* DOUBLED MASSIVE BRAND LOGO BADGE IMAGE */
 .brand-logo-img {
-   height: 90px;
+   height: 150px;
    width: auto;
   max-width: 650px;
   object-fit: contain;
@@ -197,17 +197,7 @@ h1, h2, h3, h4 {
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.65));
   transition: transform 0.3s var(--ease-smooth);
 }
-@media (max-width: 768px) {
-    .brand-logo-img {
-        height: 70px;
-    }
-}
 
-@media (max-width: 480px) {
-    .brand-logo-img {
-        height: 60px;
-    }
-}
 .brand-logo-img:hover {
   transform: scale(1.04);
 }
@@ -2048,7 +2038,7 @@ h1, h2, h3, h4 {
 @media(max-width: 480px) {
   .brand-logo-img {
     height: 110px;
-    max-width: 290px;
+    max-width: 150px;
   }
 
   .nav-links {
