@@ -15,7 +15,7 @@
 <meta name="geo.position" content="15.2689;75.8797"/>
 <meta name="ICBM" content="15.2689, 75.8797"/>
 
-<!-- CANONICAL URL PLACEHOLDER (UPDATE AFTER DOMAIN PURCHASE) -->
+<!-- CANONICAL URL PLACEHOLDER -->
 <link rel="canonical" href="https://yourdomain.com/"/>
 
 <!-- OPEN GRAPH META TAGS -->
@@ -24,30 +24,67 @@
 <meta property="og:title" content="Lakshmi Enterprises — #1 Safety Nets, Pigeon Nets &amp; Invisible Grills"/>
 <meta property="og:description" content="Premium balcony safety nets, pigeon control nets, anti-bird spikes &amp; SS Steel invisible grills across Hospet, Vijayanagara, Ballari, Hubli &amp; surrounding areas. 10-Year Written Warranty. Call +91 98800 98197!"/>
 <meta property="og:url" content="https://yourdomain.com/"/>
-<meta property="og:image" content="https://yourdomain.com/assets/child2.webp"/>
+<meta property="og:image" content="https://yourdomain.com/assets/child2-desktop.webp"/>
 <meta property="og:locale" content="en_IN"/>
 
 <!-- TWITTER CARD META TAGS -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Lakshmi Enterprises — Safety Nets &amp; Invisible Grills"/>
 <meta name="twitter:description" content="Balcony safety nets, pigeon control nets &amp; SS Steel invisible grills across Hospet, Ballari, Hubli &amp; Nearby. Call +91 98800 98197."/>
-<meta name="twitter:image" content="https://yourdomain.com/assets/child2.webp"/>
+<meta name="twitter:image" content="https://yourdomain.com/assets/child2-desktop.webp"/>
 
 <!-- PWA MANIFEST & FAVICON -->
 <link rel="manifest" href="site.webmanifest"/>
-<link rel="icon" type="image/webp" href="assets/logo_v2.webp"/>
+<link rel="icon" type="image/webp" href="assets/logo_v2-mobile.webp"/>
 
-<!-- OPTIMIZED DOMAIN PRECONNECT & FONT PRELOADING -->
+<!-- OPTIMIZED DOMAIN PRECONNECT & ESSENTIAL GOOGLE FONTS (SINGLE LIGHTWEIGHT REQUEST) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;900&display=swap" rel="stylesheet"/>
 
-<!-- INSTANT HERO LCP PRELOAD -->
-<link rel="preload" as="image" href="assets/child2.webp?v=41" type="image/webp" fetchpriority="high"/>
+<!-- INSTANT HERO LCP PRELOAD (RESPONSIVE FOR MOBILE & DESKTOP) -->
+<link rel="preload" as="image" href="assets/child2-mobile.webp?v=42" type="image/webp" media="(max-width: 768px)" fetchpriority="high"/>
+<link rel="preload" as="image" href="assets/child2-desktop.webp?v=42" type="image/webp" media="(min-width: 769px)" fetchpriority="high"/>
 
-<link rel="stylesheet" href="style.css?v=41"/>
+<!-- CRITICAL ABOVE-THE-FOLD INLINE CSS FOR ZERO RENDER-BLOCKING LCP -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#090a0f;color:#f3f4f6;overflow-x:hidden;padding-bottom:70px;-webkit-font-smoothing:antialiased}
+@media(min-width:769px){body{padding-bottom:0}}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button,a,input,select,textarea,.g-filter,.faq-question,.hero-slide{touch-action:manipulation}
+:root{--bg:#090a0f;--bg2:#11131c;--bg3:#181b29;--text:#f3f4f6;--text2:#9ca3af;--accent:#2563eb;--accent2:#7c3aed;--wa-green:#25d366;--wa-green-hover:#128c7e;--gold:#f59e0b;--card:rgba(255,255,255,0.04);--card-border:rgba(255,255,255,0.08);--glass:rgba(18,19,28,0.85);--glass-border:rgba(255,255,255,0.12);--shadow:0 20px 50px rgba(0,0,0,0.5);--radius:16px;--radius-sm:10px;--ease-smooth:cubic-bezier(0.16,1,0.3,1);--ease-expo:cubic-bezier(0.22,1,0.36,1)}
+.container{max-width:1240px;margin:0 auto;padding:0 1.5rem}
+.top-bar{background:linear-gradient(90deg,#1e1b4b,#311b92,#0f172a);color:#fff;padding:0.45rem 0;font-size:0.82rem;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:1000}
+.top-bar-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+.navbar{position:sticky;top:0;left:0;right:0;z-index:999;padding:0.65rem 1.25rem;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);box-shadow:var(--shadow)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand-logo-img{height:60px;width:auto;max-width:280px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5))}
+.hero-slider-section{position:relative;height:92vh;min-height:620px;overflow:hidden;background:#090a0f;display:flex;align-items:flex-end}
+.hero-slider{position:absolute;inset:0;width:100%;height:100%}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;opacity:0;visibility:hidden;z-index:1;display:flex;align-items:flex-end;padding-bottom:2.2rem;transform:translate3d(0,0,0)}
+.hero-slide.active{opacity:1;visibility:visible;z-index:2}
+.hero-slide-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-slide-img{width:100%;height:100%;object-fit:cover;filter:brightness(0.72) contrast(1.08);transform:translate3d(0,0,0)}
+.hero-slide-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,10,15,0.95) 0%,rgba(9,10,15,0.45) 45%,transparent 100%)}
+.hero-slide-container{position:relative;z-index:3;width:100%;display:flex;justify-content:flex-start;text-align:left}
+.hero-slide-content{max-width:880px;width:100%}
+.gradient-text{background:linear-gradient(135deg,#38bdf8,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-slide-title{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,6vw,4.6rem);font-weight:900;margin-bottom:0.5rem;line-height:1.06;text-shadow:0 4px 20px rgba(0,0,0,0.7)}
+.title-line{display:block}
+.hero-slide-sub{font-size:1.25rem;font-weight:600;color:#f3f4f6;max-width:650px;margin-bottom:0.85rem;line-height:1.45}
+.hero-slide-btns{display:flex;gap:1rem;justify-content:flex-start;flex-wrap:wrap}
+@media(max-width:768px){.top-bar{display:none}.navbar{padding:0.55rem 0.85rem;height:128px}.logo{flex:0 0 72%;max-width:72%;padding-left:4%}.brand-logo-img{max-height:112px!important;max-width:350px!important}.hero-slider-section{min-height:560px}}
+@media(max-width:480px){.navbar{height:118px}.brand-logo-img{max-height:102px!important;max-width:310px!important}}
+</style>
 
-<!-- STRUCTURED DATA (JSON-LD SCHEMAS) FOR LOCAL BUSINESS & FAQ -->
+<!-- ASYNCHRONOUS FULL STYLESHEET LOADING FOR FASTEST FIRST CONTENTFUL PAINT -->
+<link rel="stylesheet" href="style.css?v=42" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="style.css?v=42"/></noscript>
+
+<!-- JSON-LD STRUCTURED DATA SCHEMAS -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,8 +94,8 @@
       "@id": "https://yourdomain.com/#organization",
       "name": "Lakshmi Enterprises Safety Nets",
       "url": "https://yourdomain.com/",
-      "logo": "https://yourdomain.com/assets/logo_v2.webp",
-      "image": "https://yourdomain.com/assets/child2.webp",
+      "logo": "https://yourdomain.com/assets/logo_v2-desktop.webp",
+      "image": "https://yourdomain.com/assets/child2-desktop.webp",
       "description": "Premier safety net installation provider specializing in balcony safety nets, pigeon control nets, anti-bird spikes, and SS Steel invisible grills across Hospet, Vijayanagara, Ballari, Koppal, Hubli, Dharwad, Sindhanur & Chitradurga.",
       "telephone": "+91-9880098197",
       "priceRange": "₹₹",
@@ -69,20 +106,11 @@
         "addressCountry": "IN"
       },
       "areaServed": [
-        "Hospet",
-        "Vijayanagara",
-        "Ballari",
-        "Koppal",
-        "Hubli",
-        "Dharwad",
-        "Sindhanur",
-        "Chitradurga"
+        "Hospet", "Vijayanagara", "Ballari", "Koppal", "Hubli", "Dharwad", "Sindhanur", "Chitradurga"
       ],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-        ],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "opens": "07:00",
         "closes": "21:00"
       },
@@ -170,9 +198,9 @@
 <header class="top-bar" role="banner">
   <div class="container top-bar-inner">
     <div class="top-bar-info">
-      <span class="pulse-phone">📞 Call Us: <a href="tel:+919880098197" aria-label="Call Lakshmi Enterprises">+91 98800 98197</a></span>
+      <span class="pulse-phone">📞 Call Us: <a href="tel:+919880098197" aria-label="Call Lakshmi Enterprises at +91 98800 98197">+91 98800 98197</a></span>
       <span class="dot">•</span>
-      <span>💬 WhatsApp: <a href="https://wa.me/919880098197" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">+91 98800 98197</a></span>
+      <span>💬 WhatsApp: <a href="https://wa.me/919880098197" target="_blank" rel="noopener" aria-label="Chat with Lakshmi Enterprises on WhatsApp">+91 98800 98197</a></span>
     </div>
     <div class="top-bar-badge pulse-badge">
       📍 Serving: Hospet • Vijayanagara • Ballari • Koppal • Hubli • Dharwad • Sindhanur • Chitradurga
@@ -184,7 +212,10 @@
 <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
   <div class="nav-inner">
     <a href="#" class="logo" aria-label="Lakshmi Enterprises Homepage">
-      <img src="assets/logo_v2.webp?v=41" alt="Lakshmi Enterprises Safety Nets Logo" class="brand-logo-img" width="583" height="315" decoding="async"/>
+      <img src="assets/logo_v2-mobile.webp?v=42"
+           srcset="assets/logo_v2-mobile.webp 350w, assets/logo_v2-desktop.webp 583w"
+           sizes="(max-width: 768px) 310px, 280px"
+           alt="Lakshmi Enterprises Safety Nets Logo" class="brand-logo-img" width="583" height="315" decoding="async"/>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
@@ -201,23 +232,26 @@
       <a href="tel:+919880098197" class="nav-phone-btn pulse-glow" title="Call Lakshmi Enterprises">
         <span class="phone-ring">📞</span> <strong class="nav-phone-text">+91 98800 98197</strong>
       </a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme">🌙</button>
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark theme">🌙</button>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
     </div>
   </div>
 </nav>
 
-<!-- MAIN CONTENT WRAPPER FOR SEMANTIC ACCESSIBILITY & SEO -->
+<!-- MAIN CONTENT WRAPPER -->
 <main id="main-content" role="main">
 
-<!-- IMAGE-FIRST HERO SLIDER SECTION (PREMIUM INITIAL LOADING SEQUENCE) -->
+<!-- IMAGE-FIRST HERO SLIDER SECTION (SECTION 8 LOADING EXPERIENCE & LCP OPTIMIZED) -->
 <section class="hero-slider-section hero-initial-load" id="hero" aria-label="Hero Showcase">
   <div class="hero-slider" id="heroSlider">
     
-    <!-- SLIDE 1: CHILD SAFETY (PRIMARY H1 FOR SEO) -->
+    <!-- SLIDE 1: CHILD SAFETY (SINGLE H1 ON PAGE) -->
     <div class="hero-slide active" data-index="0">
       <div class="hero-slide-bg">
-        <img src="assets/child2.webp?v=41" alt="Child Protected by Balcony Safety Net" class="hero-slide-img" fetchpriority="high" decoding="async" width="1920" height="1080"/>
+        <img src="assets/child2-mobile.webp?v=42"
+             srcset="assets/child2-mobile.webp 640w, assets/child2-desktop.webp 1280w"
+             sizes="(max-width: 768px) 100vw, 100vw"
+             alt="Child Protected by Balcony Safety Net" class="hero-slide-img" fetchpriority="high" decoding="async" width="1280" height="720"/>
         <div class="hero-slide-overlay"></div>
       </div>
       <div class="container hero-slide-container">
@@ -254,7 +288,7 @@
     <!-- SLIDE 2: ANTI-BIRD SPIKES -->
     <div class="hero-slide" data-index="1">
       <div class="hero-slide-bg">
-        <img src="assets/bird_spikes.webp?v=41" alt="Anti-Bird Spikes Installation" class="hero-slide-img" loading="lazy" decoding="async" width="1920" height="1080"/>
+        <img data-src-mobile="assets/bird_spikes-mobile.webp?v=42" data-src-desktop="assets/bird_spikes-desktop.webp?v=42" alt="Anti-Bird Spikes Installation" class="hero-slide-img lazy-slide-img" decoding="async" width="960" height="540"/>
         <div class="hero-slide-overlay"></div>
       </div>
       <div class="container hero-slide-container">
@@ -268,7 +302,6 @@
           </h2>
           <p class="hero-slide-sub anim-item step-desc">100% effective bird &amp; pigeon roosting protection for ledges, parapets &amp; AC units.</p>
 
-          <!-- SLEEK SERVICE LOCATIONS RIBBON DIRECTLY ABOVE CALL BUTTONS -->
           <div class="hero-location-ribbon anim-item step-desc">
             <span>📍</span> <strong>Serving:</strong> Hospet • Vijayanagara • Ballari • Koppal • Hubli • Dharwad • Sindhanur • Chitradurga
           </div>
@@ -291,7 +324,7 @@
     <!-- SLIDE 3: PIGEON CONTROL -->
     <div class="hero-slide" data-index="2">
       <div class="hero-slide-bg">
-        <img src="assets/indian_balcony.webp?v=41" alt="Pigeon Control Netting Installed" class="hero-slide-img" loading="lazy" decoding="async" width="1920" height="1080"/>
+        <img data-src-mobile="assets/indian_balcony-mobile.webp?v=42" data-src-desktop="assets/indian_balcony-desktop.webp?v=42" alt="Pigeon Control Netting Installed" class="hero-slide-img lazy-slide-img" decoding="async" width="960" height="540"/>
         <div class="hero-slide-overlay"></div>
       </div>
       <div class="container hero-slide-container">
@@ -305,7 +338,6 @@
           </h2>
           <p class="hero-slide-sub anim-item step-desc">100% bird-free balcony living guaranteed.</p>
 
-          <!-- SLEEK SERVICE LOCATIONS RIBBON DIRECTLY ABOVE CALL BUTTONS -->
           <div class="hero-location-ribbon anim-item step-desc">
             <span>📍</span> <strong>Serving:</strong> Hospet • Vijayanagara • Ballari • Koppal • Hubli • Dharwad • Sindhanur • Chitradurga
           </div>
@@ -328,7 +360,7 @@
     <!-- SLIDE 4: MONKEY PROTECTION -->
     <div class="hero-slide" data-index="3">
       <div class="hero-slide-bg">
-        <img src="assets/monkey-with-nets.webp?v=41" alt="Monkey Protection Safety Netting" class="hero-slide-img" loading="lazy" decoding="async" width="1920" height="1080"/>
+        <img data-src-mobile="assets/monkey-with-nets-mobile.webp?v=42" data-src-desktop="assets/monkey-with-nets-desktop.webp?v=42" alt="Monkey Protection Safety Netting" class="hero-slide-img lazy-slide-img" decoding="async" width="1280" height="720"/>
         <div class="hero-slide-overlay"></div>
       </div>
       <div class="container hero-slide-container">
@@ -342,7 +374,6 @@
           </h2>
           <p class="hero-slide-sub anim-item step-desc">Heavy-duty steel-core mesh that resists bites &amp; claws.</p>
 
-          <!-- SLEEK SERVICE LOCATIONS RIBBON DIRECTLY ABOVE CALL BUTTONS -->
           <div class="hero-location-ribbon anim-item step-desc">
             <span>📍</span> <strong>Serving:</strong> Hospet • Vijayanagara • Ballari • Koppal • Hubli • Dharwad • Sindhanur • Chitradurga
           </div>
@@ -365,7 +396,7 @@
     <!-- SLIDE 5: SS STEEL INVISIBLE GRILLS -->
     <div class="hero-slide" data-index="4">
       <div class="hero-slide-bg">
-        <img src="assets/invisible.webp?v=41" alt="SS Steel Invisible Grills" class="hero-slide-img" loading="lazy" decoding="async" width="1920" height="1080"/>
+        <img data-src-mobile="assets/invisible-mobile.webp?v=42" data-src-desktop="assets/invisible-desktop.webp?v=42" alt="SS Steel Invisible Grills" class="hero-slide-img lazy-slide-img" decoding="async" width="960" height="540"/>
         <div class="hero-slide-overlay"></div>
       </div>
       <div class="container hero-slide-container">
@@ -379,7 +410,6 @@
           </h2>
           <p class="hero-slide-sub anim-item step-desc">High-tensile SS Steel wire cable protection for modern balconies &amp; windows.</p>
 
-          <!-- SLEEK SERVICE LOCATIONS RIBBON DIRECTLY ABOVE CALL BUTTONS -->
           <div class="hero-location-ribbon anim-item step-desc">
             <span>📍</span> <strong>Serving:</strong> Hospet • Vijayanagara • Ballari • Koppal • Hubli • Dharwad • Sindhanur • Chitradurga
           </div>
@@ -402,7 +432,7 @@
     <!-- SLIDE 6: BALCONY SAFETY NETS -->
     <div class="hero-slide" data-index="5">
       <div class="hero-slide-bg">
-        <img src="assets/karnataka_balcony_net1.webp?v=41" alt="Balcony Safety Netting Installation" class="hero-slide-img" loading="lazy" decoding="async" width="1920" height="1080"/>
+        <img data-src-mobile="assets/karnataka_balcony_net1-mobile.webp?v=42" data-src-desktop="assets/karnataka_balcony_net1-desktop.webp?v=42" alt="Balcony Safety Netting Installation" class="hero-slide-img lazy-slide-img" decoding="async" width="960" height="540"/>
         <div class="hero-slide-overlay"></div>
       </div>
       <div class="container hero-slide-container">
@@ -416,7 +446,6 @@
           </h2>
           <p class="hero-slide-sub anim-item step-desc">UV-stabilized Garware net with 10-year warranty certificate.</p>
 
-          <!-- SLEEK SERVICE LOCATIONS RIBBON DIRECTLY ABOVE CALL BUTTONS -->
           <div class="hero-location-ribbon anim-item step-desc">
             <span>📍</span> <strong>Serving:</strong> Hospet • Vijayanagara • Ballari • Koppal • Hubli • Dharwad • Sindhanur • Chitradurga
           </div>
@@ -439,7 +468,7 @@
     <!-- SLIDE 7: SPORTS NETS -->
     <div class="hero-slide" data-index="6">
       <div class="hero-slide-bg">
-        <img src="assets/karnataka_cricket_net.webp?v=41" alt="Cricket Practice Pitch Enclosure" class="hero-slide-img" loading="lazy" decoding="async" width="1920" height="1080"/>
+        <img data-src-mobile="assets/karnataka_cricket_net-mobile.webp?v=42" data-src-desktop="assets/karnataka_cricket_net-desktop.webp?v=42" alt="Cricket Practice Pitch Enclosure" class="hero-slide-img lazy-slide-img" decoding="async" width="1280" height="720"/>
         <div class="hero-slide-overlay"></div>
       </div>
       <div class="container hero-slide-container">
@@ -453,7 +482,6 @@
           </h2>
           <p class="hero-slide-sub anim-item step-desc">Custom all-weather high-density sports netting.</p>
 
-          <!-- SLEEK SERVICE LOCATIONS RIBBON DIRECTLY ABOVE CALL BUTTONS -->
           <div class="hero-location-ribbon anim-item step-desc">
             <span>📍</span> <strong>Serving:</strong> Hospet • Vijayanagara • Ballari • Koppal • Hubli • Dharwad • Sindhanur • Chitradurga
           </div>
@@ -490,7 +518,10 @@
       <!-- Problem 1: Child Safety -->
       <div class="problem-card reveal" data-delay="0">
         <div class="problem-img-wrap">
-          <img src="assets/child2.webp?v=41" alt="Child Balcony Danger" class="problem-card-img" loading="lazy" decoding="async" width="600" height="400"/>
+          <img src="assets/child2-mobile.webp?v=42"
+               srcset="assets/child2-mobile.webp 640w, assets/child2-desktop.webp 1280w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Child Balcony Danger" class="problem-card-img" loading="lazy" decoding="async" width="600" height="400"/>
           <div class="problem-tag">High Fall Risk</div>
         </div>
         <div class="problem-body">
@@ -503,7 +534,10 @@
       <!-- Problem 2: Real Pigeon Mess Photo -->
       <div class="problem-card reveal" data-delay="100">
         <div class="problem-img-wrap">
-          <img src="assets/pigeon_mess.webp?v=41" alt="Pigeon Droppings & Unhygiene on Balcony" class="problem-card-img" loading="lazy" decoding="async" width="600" height="400"/>
+          <img src="assets/pigeon_mess-mobile.webp?v=42"
+               srcset="assets/pigeon_mess-mobile.webp 480w, assets/pigeon_mess-desktop.webp 800w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Pigeon Droppings & Unhygiene on Balcony" class="problem-card-img" loading="lazy" decoding="async" width="600" height="400"/>
           <div class="problem-tag">Severe Unhygiene</div>
         </div>
         <div class="problem-body">
@@ -516,7 +550,10 @@
       <!-- Problem 3: Real Monkey Mess Photo -->
       <div class="problem-card reveal" data-delay="200">
         <div class="problem-img-wrap">
-          <img src="assets/monkey_mess.webp?v=41" alt="Monkeys Invading Apartment Balcony" class="problem-card-img" loading="lazy" decoding="async" width="600" height="400"/>
+          <img src="assets/monkey_mess-mobile.webp?v=42"
+               srcset="assets/monkey_mess-mobile.webp 480w, assets/monkey_mess-desktop.webp 800w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Monkeys Invading Apartment Balcony" class="problem-card-img" loading="lazy" decoding="async" width="600" height="400"/>
           <div class="problem-tag">Property Destruction</div>
         </div>
         <div class="problem-body">
@@ -550,7 +587,10 @@
       <!-- Service 1: Balcony Safety Nets -->
       <div class="service-card reveal" data-delay="0">
         <div class="service-img-wrap">
-          <img src="assets/karnataka_balcony_net1.webp?v=41" alt="Balcony Safety Net Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/karnataka_balcony_net1-mobile.webp?v=42"
+               srcset="assets/karnataka_balcony_net1-mobile.webp 480w, assets/karnataka_balcony_net1-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Balcony Safety Net Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="service-badge">Most Popular</div>
         </div>
         <div class="service-body">
@@ -577,7 +617,10 @@
       <!-- Service 2: Anti-Bird Spikes -->
       <div class="service-card reveal" data-delay="100">
         <div class="service-img-wrap">
-          <img src="assets/bird_spikes.webp?v=41" alt="Anti-Bird Spikes Installed on Parapet" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/bird_spikes-mobile.webp?v=42"
+               srcset="assets/bird_spikes-mobile.webp 480w, assets/bird_spikes-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Anti-Bird Spikes Installed on Parapet" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="service-badge service-badge-green">Zero Maintenance</div>
         </div>
         <div class="service-body">
@@ -604,7 +647,10 @@
       <!-- Service 3: Pigeon Control Nets -->
       <div class="service-card reveal" data-delay="200">
         <div class="service-img-wrap">
-          <img src="assets/indian_balcony.webp?v=41" alt="Pigeon Control Netting Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/indian_balcony-mobile.webp?v=42"
+               srcset="assets/indian_balcony-mobile.webp 480w, assets/indian_balcony-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Pigeon Control Netting Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="service-badge service-badge-green">Clean Living</div>
         </div>
         <div class="service-body">
@@ -631,7 +677,10 @@
       <!-- Service 4: SS Steel Invisible Grills -->
       <div class="service-card reveal" data-delay="300">
         <div class="service-img-wrap">
-          <img src="assets/invisible.webp?v=41" alt="SS Steel Invisible Grills" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/invisible-mobile.webp?v=42"
+               srcset="assets/invisible-mobile.webp 480w, assets/invisible-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="SS Steel Invisible Grills" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="service-badge service-badge-gold">Luxury Safety</div>
         </div>
         <div class="service-body">
@@ -658,7 +707,10 @@
       <!-- Service 5: Children Safety Nets -->
       <div class="service-card reveal" data-delay="400">
         <div class="service-img-wrap">
-          <img src="assets/child2.webp?v=41" alt="Children & Pet Safety Nets Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/child2-mobile.webp?v=42"
+               srcset="assets/child2-mobile.webp 640w, assets/child2-desktop.webp 1280w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Children & Pet Safety Nets Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
         </div>
         <div class="service-body">
           <div class="service-head">
@@ -684,7 +736,10 @@
       <!-- Service 6: Sports Nets -->
       <div class="service-card reveal" data-delay="500">
         <div class="service-img-wrap">
-          <img src="assets/karnataka_cricket_net.webp?v=41" alt="Cricket Practice Net Enclosure Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/karnataka_cricket_net-mobile.webp?v=42"
+               srcset="assets/karnataka_cricket_net-mobile.webp 640w, assets/karnataka_cricket_net-desktop.webp 1280w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Cricket Practice Net Enclosure Installed" class="service-img" loading="lazy" decoding="async" width="800" height="600"/>
         </div>
         <div class="service-body">
           <div class="service-head">
@@ -731,9 +786,12 @@
     <div class="gallery-grid reveal" id="galleryGrid">
       
       <!-- Photo 1: Anti-Bird Spikes -->
-      <div class="gallery-card" data-category="pigeon" data-title="Polycarbonate & SS Anti-Bird Spikes Installation" data-loc="Hospet, Vijayanagara, Ballari & Nearby" data-img="assets/bird_spikes.webp?v=41">
+      <div class="gallery-card" data-category="pigeon" data-title="Polycarbonate & SS Anti-Bird Spikes Installation" data-loc="Hospet, Vijayanagara, Ballari & Nearby" data-img="assets/bird_spikes-desktop.webp?v=42">
         <div class="g-img-wrap">
-          <img src="assets/bird_spikes.webp?v=41" alt="Anti-Bird Spikes Installation" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/bird_spikes-mobile.webp?v=42"
+               srcset="assets/bird_spikes-mobile.webp 480w, assets/bird_spikes-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Anti-Bird Spikes Installation" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="g-overlay">
             <span class="g-zoom-icon">🔍</span>
             <span class="g-tag">Anti-Bird Spikes</span>
@@ -744,9 +802,12 @@
       </div>
 
       <!-- Photo 2 -->
-      <div class="gallery-card" data-category="balcony" data-title="Full Balcony White Safety Netting" data-loc="Hubli, Dharwad, Koppal & Nearby" data-img="assets/karnataka_balcony_net1.webp?v=41">
+      <div class="gallery-card" data-category="balcony" data-title="Full Balcony White Safety Netting" data-loc="Hubli, Dharwad, Koppal & Nearby" data-img="assets/karnataka_balcony_net1-desktop.webp?v=42">
         <div class="g-img-wrap">
-          <img src="assets/karnataka_balcony_net1.webp?v=41" alt="Balcony Safety Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/karnataka_balcony_net1-mobile.webp?v=42"
+               srcset="assets/karnataka_balcony_net1-mobile.webp 480w, assets/karnataka_balcony_net1-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Balcony Safety Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="g-overlay">
             <span class="g-zoom-icon">🔍</span>
             <span class="g-tag">Balcony Safety</span>
@@ -757,9 +818,12 @@
       </div>
 
       <!-- Photo 3 -->
-      <div class="gallery-card" data-category="child" data-title="Child & Pet Balcony Safety Net Protection" data-loc="Sindhanur, Chitradurga & Nearby" data-img="assets/child2.webp?v=41">
+      <div class="gallery-card" data-category="child" data-title="Child & Pet Balcony Safety Net Protection" data-loc="Sindhanur, Chitradurga & Nearby" data-img="assets/child2-desktop.webp?v=42">
         <div class="g-img-wrap">
-          <img src="assets/child2.webp?v=41" alt="Child Safety Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/child2-mobile.webp?v=42"
+               srcset="assets/child2-mobile.webp 640w, assets/child2-desktop.webp 1280w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Child Safety Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="g-overlay">
             <span class="g-zoom-icon">🔍</span>
             <span class="g-tag">Children &amp; Pet Safety</span>
@@ -770,9 +834,12 @@
       </div>
 
       <!-- Photo 4 -->
-      <div class="gallery-card" data-category="balcony" data-title="Green Heavy Duty Monkey Protection Safety Net" data-loc="Hospet, Ballari, Koppal & Nearby" data-img="assets/monkey-with-nets.webp?v=41">
+      <div class="gallery-card" data-category="balcony" data-title="Green Heavy Duty Monkey Protection Safety Net" data-loc="Hospet, Ballari, Koppal & Nearby" data-img="assets/monkey-with-nets-desktop.webp?v=42">
         <div class="g-img-wrap">
-          <img src="assets/monkey-with-nets.webp?v=41" alt="Monkey Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/monkey-with-nets-mobile.webp?v=42"
+               srcset="assets/monkey-with-nets-mobile.webp 640w, assets/monkey-with-nets-desktop.webp 1280w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Monkey Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="g-overlay">
             <span class="g-zoom-icon">🔍</span>
             <span class="g-tag">Monkey Protection</span>
@@ -783,9 +850,12 @@
       </div>
 
       <!-- Photo 5 -->
-      <div class="gallery-card" data-category="sports" data-title="Professional Outdoor Cricket Practice Net Cage" data-loc="Hubli, Dharwad, Chitradurga & Nearby" data-img="assets/karnataka_cricket_net.webp?v=41">
+      <div class="gallery-card" data-category="sports" data-title="Professional Outdoor Cricket Practice Net Cage" data-loc="Hubli, Dharwad, Chitradurga & Nearby" data-img="assets/karnataka_cricket_net-desktop.webp?v=42">
         <div class="g-img-wrap">
-          <img src="assets/karnataka_cricket_net.webp?v=41" alt="Cricket Practice Net Cage" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/karnataka_cricket_net-mobile.webp?v=42"
+               srcset="assets/karnataka_cricket_net-mobile.webp 640w, assets/karnataka_cricket_net-desktop.webp 1280w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Cricket Practice Net Cage" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="g-overlay">
             <span class="g-zoom-icon">🔍</span>
             <span class="g-tag">Sports Net</span>
@@ -796,9 +866,12 @@
       </div>
 
       <!-- Photo 6 -->
-      <div class="gallery-card" data-category="pigeon" data-title="Transparent Pigeon Protection Net with View" data-loc="Vijayanagara, Sindhanur & Nearby" data-img="assets/indian_balcony.webp?v=41">
+      <div class="gallery-card" data-category="pigeon" data-title="Transparent Pigeon Protection Net with View" data-loc="Vijayanagara, Sindhanur & Nearby" data-img="assets/indian_balcony-desktop.webp?v=42">
         <div class="g-img-wrap">
-          <img src="assets/indian_balcony.webp?v=41" alt="Pigeon Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/indian_balcony-mobile.webp?v=42"
+               srcset="assets/indian_balcony-mobile.webp 480w, assets/indian_balcony-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="Pigeon Net Installation" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="g-overlay">
             <span class="g-zoom-icon">🔍</span>
             <span class="g-tag">Pigeon Control</span>
@@ -809,9 +882,12 @@
       </div>
 
       <!-- Photo 7: SS Steel Invisible Grills -->
-      <div class="gallery-card" data-category="grill" data-title="SS Steel Invisible Grills" data-loc="Hospet, Hubli, Ballari & Nearby" data-img="assets/invisible.webp?v=41">
+      <div class="gallery-card" data-category="grill" data-title="SS Steel Invisible Grills" data-loc="Hospet, Hubli, Ballari & Nearby" data-img="assets/invisible-desktop.webp?v=42">
         <div class="g-img-wrap">
-          <img src="assets/invisible.webp?v=41" alt="SS Steel Invisible Grills" loading="lazy" decoding="async" width="800" height="600"/>
+          <img src="assets/invisible-mobile.webp?v=42"
+               srcset="assets/invisible-mobile.webp 480w, assets/invisible-desktop.webp 960w"
+               sizes="(max-width: 768px) 100vw, 400px"
+               alt="SS Steel Invisible Grills" loading="lazy" decoding="async" width="800" height="600"/>
           <div class="g-overlay">
             <span class="g-zoom-icon">🔍</span>
             <span class="g-tag">Invisible Grill</span>
@@ -834,7 +910,10 @@
     
     <div class="projects-slider-wrap reveal">
       <div class="project-card">
-        <img src="assets/monkey-with-nets.webp?v=41" alt="Monkey Protection Safety Net Installation" class="proj-img" loading="lazy" decoding="async" width="800" height="550"/>
+        <img src="assets/monkey-with-nets-mobile.webp?v=42"
+             srcset="assets/monkey-with-nets-mobile.webp 640w, assets/monkey-with-nets-desktop.webp 1280w"
+             sizes="(max-width: 768px) 100vw, 400px"
+             alt="Monkey Protection Safety Net Installation" class="proj-img" loading="lazy" decoding="async" width="800" height="550"/>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-badge">Monkey Guard Net</span>
@@ -847,7 +926,10 @@
       </div>
 
       <div class="project-card">
-        <img src="assets/karnataka_balcony_net1.webp?v=41" alt="Balcony Net Installation" class="proj-img" loading="lazy" decoding="async" width="800" height="550"/>
+        <img src="assets/karnataka_balcony_net1-mobile.webp?v=42"
+             srcset="assets/karnataka_balcony_net1-mobile.webp 480w, assets/karnataka_balcony_net1-desktop.webp 960w"
+             sizes="(max-width: 768px) 100vw, 400px"
+             alt="Balcony Net Installation" class="proj-img" loading="lazy" decoding="async" width="800" height="550"/>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-badge">Balcony + Pigeon Net</span>
@@ -875,7 +957,10 @@
         <div class="ba-before">
           <div class="ba-label">BEFORE (PIGEON MESS)</div>
           <div class="ba-img">
-            <img src="assets/pigeon_mess.webp?v=41" alt="Dirty Unsafe Balcony with Pigeons" class="ba-after-real-img" loading="lazy" decoding="async" width="800" height="550"/>
+            <img src="assets/pigeon_mess-mobile.webp?v=42"
+                 srcset="assets/pigeon_mess-mobile.webp 480w, assets/pigeon_mess-desktop.webp 800w"
+                 sizes="(max-width: 768px) 100vw, 400px"
+                 alt="Dirty Unsafe Balcony with Pigeons" class="ba-after-real-img" loading="lazy" decoding="async" width="800" height="550"/>
             <div class="ba-scene-after-overlay" style="justify-content: flex-start; padding-top: 2rem;">
               <p style="background: rgba(239, 68, 68, 0.85); padding: 0.4rem 1rem; border-radius: 99px; font-weight: 800;">
                 ⚠️ Unhealthy • Dirty Droppings • Bird Disease Risk
@@ -888,7 +973,10 @@
         <div class="ba-after">
           <div class="ba-label">AFTER (SAFE &amp; INVISIBLE)</div>
           <div class="ba-img">
-            <img src="assets/indian_balcony.webp?v=41" alt="Protected Clean Balcony Net" class="ba-after-real-img" loading="lazy" decoding="async" width="800" height="550"/>
+            <img src="assets/indian_balcony-mobile.webp?v=42"
+                 srcset="assets/indian_balcony-mobile.webp 480w, assets/indian_balcony-desktop.webp 960w"
+                 sizes="(max-width: 768px) 100vw, 400px"
+                 alt="Protected Clean Balcony Net" class="ba-after-real-img" loading="lazy" decoding="async" width="800" height="550"/>
             <div class="ba-scene-after-overlay">
               <div class="ba-shield">🛡️</div>
               <p style="background: rgba(16, 185, 129, 0.85); padding: 0.4rem 1rem; border-radius: 99px; font-weight: 800;">
@@ -1012,7 +1100,7 @@
     
     <!-- AUTOMATIC REVIEWS CAROUSEL SLIDER -->
     <div class="reviews-slider-container reveal" id="reviewsSliderContainer" role="region" aria-label="Customer Reviews Slider">
-      <button class="reviews-nav-btn prev-btn" id="reviewsPrev" aria-label="Previous Review">❮</button>
+      <button class="reviews-nav-btn prev-btn" id="reviewsPrev" type="button" aria-label="Previous Review">❮</button>
       
       <div class="reviews-track-wrapper">
         <div class="reviews-track" id="reviewsTrack">
@@ -1124,7 +1212,7 @@
         </div>
       </div>
 
-      <button class="reviews-nav-btn next-btn" id="reviewsNext" aria-label="Next Review">❯</button>
+      <button class="reviews-nav-btn next-btn" id="reviewsNext" type="button" aria-label="Next Review">❯</button>
     </div>
 
     <!-- CAROUSEL DOT INDICATORS -->
@@ -1140,7 +1228,7 @@
     
     <div class="faq-grid">
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">
+        <button class="faq-question" type="button" aria-expanded="false">
           <span>1. Which locations do you serve?</span>
           <span class="faq-icon">+</span>
         </button>
@@ -1150,7 +1238,7 @@
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">
+        <button class="faq-question" type="button" aria-expanded="false">
           <span>2. How long do Lakshmi Enterprises Safety Nets &amp; Anti-Bird Spikes last?</span>
           <span class="faq-icon">+</span>
         </button>
@@ -1160,7 +1248,7 @@
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">
+        <button class="faq-question" type="button" aria-expanded="false">
           <span>3. Will the safety net or bird spikes harm birds?</span>
           <span class="faq-icon">+</span>
         </button>
@@ -1170,7 +1258,7 @@
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">
+        <button class="faq-question" type="button" aria-expanded="false">
           <span>4. Is the on-site inspection really 100% free?</span>
           <span class="faq-icon">+</span>
         </button>
@@ -1180,7 +1268,7 @@
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">
+        <button class="faq-question" type="button" aria-expanded="false">
           <span>5. How can I book an installation?</span>
           <span class="faq-icon">+</span>
         </button>
@@ -1275,7 +1363,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <img src="assets/logo_v2.webp?v=41" alt="Lakshmi Enterprises Safety Nets Logo" class="brand-logo-img" width="583" height="315" loading="lazy" decoding="async"/>
+          <img src="assets/logo_v2-mobile.webp?v=42"
+               srcset="assets/logo_v2-mobile.webp 350w, assets/logo_v2-desktop.webp 583w"
+               sizes="(max-width: 768px) 310px, 280px"
+               alt="Lakshmi Enterprises Safety Nets Logo" class="brand-logo-img" width="583" height="315" loading="lazy" decoding="async"/>
         </div>
         <p>Premier safety net installation provider. Specializing in UV-stabilized balcony safety nets, anti-bird spikes, pigeon protection, and SS Steel invisible grills across Hospet, Vijayanagara, Ballari, Koppal, Hubli, Dharwad, Sindhanur &amp; Chitradurga.</p>
         <div class="footer-contact-direct">
@@ -1322,11 +1413,11 @@
   </div>
 </footer>
 
-<!-- LIGHTBOX MODAL FOR PHOTO GALLERY -->
-<div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Project Photo Preview">
+<!-- LIGHTBOX MODAL FOR PHOTO GALLERY (ACCESSIBILITY INERT & ACCESSIBLE WHEN HIDDEN) -->
+<div class="lightbox-modal" id="lightboxModal" style="display: none;" aria-hidden="true" role="dialog" aria-label="Project Photo Preview">
   <div class="lightbox-content">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close modal">✕</button>
-    <img src="" alt="Project Photo Preview" id="lightboxImg" class="lightbox-img" width="800" height="500" loading="lazy" decoding="async"/>
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close modal">✕</button>
+    <img src="assets/child2-mobile.webp" alt="Project Photo Preview" id="lightboxImg" class="lightbox-img" width="800" height="500" loading="lazy" decoding="async"/>
     <div class="lightbox-details">
       <span class="lightbox-tag" id="lightboxTag">Category</span>
       <h3 id="lightboxTitle">Project Title</h3>
@@ -1360,6 +1451,6 @@
 </div>
 
 <!-- DEFERRED SCRIPT EXECUTION -->
-<script src="script.js?v=41" defer></script>
+<script src="script.js?v=42" defer></script>
 </body>
 </html>
