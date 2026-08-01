@@ -2,5 +2,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap Location (Update yourdomain.com after domain purchase)
-Sitemap: https://yourdomain.com/sitemap.xml
+# Sitemap Location
+Sitemap: https://lakshmisafetynets.in/sitemap.xml
