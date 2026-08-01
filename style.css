@@ -8,6 +8,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -17,6 +18,9 @@ body {
   transition: background 0.3s, color 0.3s;
   overflow-x: hidden;
   padding-bottom: 70px; /* Offset for mobile bottom sticky bar */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 @media(min-width: 769px) {
@@ -34,6 +38,11 @@ img {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* TOUCH ACTION MANIPULATION TO ELIMINATE 300MS TAP DELAY ON MOBILE */
+button, a, input, select, textarea, .g-filter, .faq-question, .hero-slide, .ba-slider {
+  touch-action: manipulation;
 }
 
 :root {
@@ -120,6 +129,12 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
+/* CONTENT-VISIBILITY AUTOMATIC RENDERING FOR OFFSCREEN SECTIONS */
+.services, .gallery-section, .recent-projects, .before-after, .why-us, .process, .testimonials, .faq-section, .cta-section, .footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
 /* ===== TOP ANNOUNCEMENT BAR ===== */
 .top-bar {
   background: linear-gradient(90deg, #1e1b4b, #311b92, #0f172a);
@@ -159,12 +174,14 @@ h1, h2, h3, h4 {
   right: 0;
   z-index: 999;
   padding: 0.65rem 1.25rem;
-  transition: all 0.4s var(--ease-smooth);
+  transition: transform 0.3s var(--ease-smooth), background 0.3s, border-color 0.3s;
   background: var(--glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   box-shadow: var(--shadow);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .nav-inner {
@@ -245,7 +262,7 @@ h1, h2, h3, h4 {
   border-radius: 99px;
   color: #60a5fa;
   font-size: 0.88rem;
-  transition: all 0.3s var(--ease-smooth);
+  transition: transform 0.3s var(--ease-smooth), background 0.3s;
 }
 
 .nav-phone-btn:hover {
@@ -281,10 +298,11 @@ h1, h2, h3, h4 {
   font-weight: 800;
   cursor: pointer;
   border: none;
-  transition: all 0.35s var(--ease-smooth);
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  will-change: transform;
 }
 
 .btn-primary {
@@ -399,7 +417,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   IMAGE-FIRST HERO SLIDER SECTION
+   IMAGE-FIRST HERO SLIDER SECTION (GPU ACCELERATED 60 FPS)
    ========================================================================== */
 .hero-slider-section {
   position: relative;
@@ -430,6 +448,8 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: flex-end;
   padding-bottom: 2.2rem;
+  will-change: opacity, visibility;
+  transform: translate3d(0, 0, 0);
 }
 
 .hero-slide.active {
@@ -449,13 +469,14 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1);
+  transform: scale(1) translate3d(0, 0, 0);
   transition: transform 6s var(--ease-expo);
-  filter: brightness(0.72) contrast(1.08); /* Light filter so real photo is 80% visible & vivid! */
+  filter: brightness(0.72) contrast(1.08);
+  will-change: transform;
 }
 
 .hero-slide.active .hero-slide-img {
-  transform: scale(1.06);
+  transform: scale(1.06) translate3d(0, 0, 0);
 }
 
 .hero-slide-overlay {
@@ -528,71 +549,66 @@ h1, h2, h3, h4 {
   font-weight: 800;
 }
 
-/* SMOOTH & GENTLE SLOWER STAGGERED REVEAL ANIMATION */
+/* STAGGERED REVEAL ANIMATION (HARDWARE ACCELERATED) */
 .anim-item {
   opacity: 0;
-  transform: translateY(28px);
-  filter: blur(8px);
-  transition: opacity 1.0s var(--ease-expo), transform 1.0s var(--ease-expo), filter 1.0s var(--ease-expo);
-  will-change: transform, opacity, filter;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.8s var(--ease-expo), transform 0.8s var(--ease-expo);
+  will-change: transform, opacity;
 }
 
 /* Entrance Sequence Delays */
 .hero-slide.active .step-label {
   opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-  transition-delay: 0.35s;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.15s;
 }
 
 .hero-slide.active .step-title {
   opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-  transition-delay: 0.65s;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.3s;
 }
 
 .hero-slide.active .step-desc {
   opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-  transition-delay: 0.95s;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.45s;
 }
 
 .hero-slide.active .step-btns {
   opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-  transition-delay: 1.25s;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.6s;
 }
 
 /* Reverse Exit Sequence */
 .hero-slide.exiting .step-btns {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity 0.15s ease, transform 0.15s ease;
   transition-delay: 0s;
 }
 
 .hero-slide.exiting .step-desc {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  transition-delay: 0.06s;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition-delay: 0.04s;
 }
 
 .hero-slide.exiting .step-title {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  transition-delay: 0.12s;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition-delay: 0.08s;
 }
 
 .hero-slide.exiting .step-label {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  transition-delay: 0.18s;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition-delay: 0.12s;
 }
 
 /* SLIDE CONTENT TYPOGRAPHY & BUTTONS */
@@ -661,7 +677,8 @@ h1, h2, h3, h4 {
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.4s var(--ease-smooth), border-color 0.3s;
+  transition: transform 0.35s var(--ease-smooth), border-color 0.3s;
+  will-change: transform;
 }
 
 .problem-card:hover {
@@ -679,7 +696,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s var(--ease-smooth);
+  transition: transform 0.4s var(--ease-smooth);
 }
 
 .problem-card:hover .problem-card-img {
@@ -767,9 +784,10 @@ h1, h2, h3, h4 {
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.4s var(--ease-smooth), border-color 0.3s, box-shadow 0.3s;
+  transition: transform 0.35s var(--ease-smooth), border-color 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
+  will-change: transform;
 }
 
 .service-card:hover {
@@ -788,7 +806,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s var(--ease-smooth);
+  transition: transform 0.4s var(--ease-smooth);
 }
 
 .service-card:hover .service-img {
@@ -952,7 +970,8 @@ h1, h2, h3, h4 {
   overflow: hidden;
   cursor: pointer;
   box-shadow: var(--shadow);
-  transition: transform 0.4s var(--ease-smooth), opacity 0.4s ease;
+  transition: transform 0.35s var(--ease-smooth), opacity 0.35s ease;
+  will-change: transform;
 }
 
 .gallery-card.hide {
@@ -969,7 +988,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s var(--ease-smooth);
+  transition: transform 0.4s var(--ease-smooth);
 }
 
 .gallery-card:hover img {
@@ -1044,6 +1063,7 @@ h1, h2, h3, h4 {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s var(--ease-smooth);
+  will-change: opacity;
 }
 
 .lightbox-modal.open {
@@ -1064,8 +1084,8 @@ h1, h2, h3, h4 {
 }
 
 @keyframes modalPop {
-  from { transform: scale(0.92) translateY(20px); }
-  to { transform: scale(1) translateY(0); }
+  from { transform: scale(0.92) translate3d(0, 20px, 0); }
+  to { transform: scale(1) translate3d(0, 0, 0); }
 }
 
 .lightbox-close {
@@ -1324,6 +1344,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius);
   padding: 2rem;
   transition: transform 0.35s var(--ease-smooth);
+  will-change: transform;
 }
 
 .why-card:hover {
@@ -1438,8 +1459,9 @@ h1, h2, h3, h4 {
 .reviews-track {
   display: flex;
   gap: 1.5rem;
-  transition: transform 0.6s var(--ease-expo);
+  transition: transform 0.5s var(--ease-expo);
   will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .reviews-track .testimonial-card {
@@ -1451,6 +1473,7 @@ h1, h2, h3, h4 {
   padding: 1.8rem;
   transition: transform 0.35s var(--ease-smooth), border-color 0.3s, box-shadow 0.3s;
   text-align: left;
+  will-change: transform;
 }
 
 .reviews-track .testimonial-card:hover {
@@ -1844,10 +1867,12 @@ h1, h2, h3, h4 {
   color: #fff;
   box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
   transition: transform 0.3s var(--ease-smooth);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.12) !important;
+  transform: scale(1.12) translate3d(0, 0, 0) !important;
 }
 
 .wa-tooltip {
@@ -1892,6 +1917,8 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 
   .mobile-bar-btn {
@@ -1921,16 +1948,17 @@ h1, h2, h3, h4 {
   }
 }
 
-/* ===== SCROLL REVEAL ===== */
+/* ===== SCROLL REVEAL (GPU OPTIMIZED) ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+  will-change: transform, opacity;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
 }
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
@@ -1990,7 +2018,7 @@ h1, h2, h3, h4 {
     flex: 0 0 28%;
     max-width: 28%;
     display: flex;
-    justify-content: flex-start; /* Moved controls towards left side */
+    justify-content: flex-start;
     align-items: center;
     gap: 8px;
     margin-left: 0;
@@ -2104,7 +2132,7 @@ h1, h2, h3, h4 {
   .nav-actions {
     flex: 0 0 28%;
     max-width: 28%;
-    justify-content: flex-start; /* Moved controls towards left side */
+    justify-content: flex-start;
     gap: 6px;
   }
 
