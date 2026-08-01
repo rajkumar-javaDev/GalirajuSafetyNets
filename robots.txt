@@ -1,0 +1,6 @@
+# Robots.txt for Lakshmi Enterprises Safety Nets
+User-agent: *
+Allow: /
+
+# Sitemap Location (Update yourdomain.com after domain purchase)
+Sitemap: https://yourdomain.com/sitemap.xml

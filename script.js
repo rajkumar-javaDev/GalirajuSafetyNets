@@ -1,6 +1,7 @@
 /* ==========================================================================
-   LAKSHMI ENTERPRISES — HIGH-PERFORMANCE JS CONTROLLER
+   LAKSHMI ENTERPRISES — PRODUCTION JS CONTROLLER
    - 60 FPS GPU-Accelerated Animations
+   - Premium Initial Page Load Sequence (Section 8)
    - Throttled Scroll & Debounced Resize Handlers
    - Quiet Hero Background Image Preloader
    - Passive Event Listeners & Zero-Jank Touch Gestures
@@ -60,19 +61,21 @@ function initMobileMenu() {
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       });
     });
   }
 }
 
 /* ==========================================================================
-   IMAGE-FIRST HERO SLIDER CONTROLLER
+   IMAGE-FIRST HERO SLIDER CONTROLLER & INITIAL LOADING EXPERIENCE (SECTION 8)
    ========================================================================== */
 function initHeroSlider() {
   const heroSection = document.getElementById('hero');
@@ -88,12 +91,26 @@ function initHeroSlider() {
   let progressReqAnim = null;
   const SLIDE_DURATION = 5000; // 5 Seconds
 
+  // SECTION 8: INITIAL PAGE LOAD SEQUENCE
+  // Step 1: Slide 0 image displays static immediately. Content initially hidden.
+  // Step 2: Wait 350ms for user to register clean hero background photo.
+  // Step 3: Trigger staggered upward fade (Label -> Title -> Subtitle -> Buttons).
+  // Step 4: Keep visible for 5s, then seamlessly transition to Slide 2.
+  if (heroSection) {
+    setTimeout(() => {
+      heroSection.classList.add('content-revealed');
+    }, 350);
+
+    setTimeout(() => {
+      heroSection.classList.remove('hero-initial-load', 'content-revealed');
+    }, SLIDE_DURATION);
+  }
+
   // QUIET HERO IMAGE BACKGROUND PRELOADER
-  // Preloads slides 2-7 in background after first paint so transitions have ZERO delay or flash!
   function preloadRemainingHeroImages() {
     const preloadTask = () => {
       slides.forEach((slide, idx) => {
-        if (idx === 0) return; // First slide is already preloaded in HTML <head>
+        if (idx === 0) return;
         const img = slide.querySelector('.hero-slide-img');
         if (img && img.src) {
           const tempImg = new Image();
@@ -237,7 +254,9 @@ function initReviewsCarousel() {
     reviewsDotsContainer.innerHTML = '';
     const totalPages = getTotalPages();
     for (let i = 0; i < totalPages; i++) {
-      const dot = document.createElement('div');
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Go to review slide ${i + 1}`);
       dot.className = `review-dot ${i === currentReviewPage ? 'active' : ''}`;
       dot.addEventListener('click', () => updateReviewsSlider(i));
       reviewsDotsContainer.appendChild(dot);
@@ -252,7 +271,7 @@ function initReviewsCarousel() {
     const cardsPerView = getCardsPerView();
     const firstCardIndex = currentReviewPage * cardsPerView;
     const cardWidth = reviewCards[0].getBoundingClientRect().width;
-    const gap = 24; // 1.5rem
+    const gap = 24;
 
     const offset = firstCardIndex * (cardWidth + gap);
     reviewsTrack.style.transform = `translate3d(-${offset}px, 0, 0)`;
@@ -362,8 +381,12 @@ function initGalleryFilters() {
 
   gFilters.forEach(btn => {
     btn.addEventListener('click', () => {
-      gFilters.forEach(b => b.classList.remove('active'));
+      gFilters.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
 
       const filter = btn.dataset.filter;
 
@@ -471,9 +494,14 @@ function initFaqAccordion() {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        const qBtn = i.querySelector('.faq-question');
+        if (qBtn) qBtn.setAttribute('aria-expanded', 'false');
+      });
       if (!isOpen) {
         item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
   });

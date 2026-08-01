@@ -1,0 +1,17 @@
+{
+  "name": "Lakshmi Enterprises Safety Nets",
+  "short_name": "Lakshmi Safety Nets",
+  "description": "Balcony Safety Nets, Pigeon Nets, Anti-Bird Spikes & SS Steel Invisible Grills in Hospet, Vijayanagara, Ballari, Koppal, Hubli, Dharwad, Sindhanur & Chitradurga.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090a0f",
+  "theme_color": "#090a0f",
+  "icons": [
+    {
+      "src": "assets/logo_v2.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
